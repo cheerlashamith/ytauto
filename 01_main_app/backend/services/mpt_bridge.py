@@ -117,12 +117,10 @@ def build_local_materials(clips: List[Path]) -> List[Dict[str, Any]]:
             continue
         
         path_str = str(clip.resolve())
-        # If running inside Docker, rewrite `/app/outputs/` to `storage/local_videos/`
-        # so it bypasses MoneyPrinterTurbo's local path safety check.
+        # If running inside Docker, rewrite `/app/outputs/` to absolute path inside MPT
         if os.environ.get("MPT_URL"):
-            # Replace /app/outputs/ with storage/local_videos/
-            # For robustness, we replace both forward and backward slashes (in case of Windows local dev mismatch, though Docker is Linux)
-            url_str = path_str.replace("/app/outputs/", "storage/local_videos/").replace("\\app\\outputs\\", "storage/local_videos/")
+            # Replace /app/outputs/ with /MoneyPrinterTurbo/storage/local_videos/
+            url_str = path_str.replace("/app/outputs/", "/MoneyPrinterTurbo/storage/local_videos/").replace("\\app\\outputs\\", "/MoneyPrinterTurbo/storage/local_videos/")
         else:
             url_str = path_str
 

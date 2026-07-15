@@ -1,0 +1,191 @@
+ULTIMATE MANIM COURSE MODE ARCHITECTURE
+=======================================
+
+Goal
+----
+Build a serious course-video renderer that can produce polished 3Blue1Brown / Apple-keynote style animations from a structured JSON file.
+
+This mode is for serious education:
+- algorithms
+- data structures
+- math
+- science
+- operating systems
+- DBMS
+- networking
+- AI/ML
+- engineering concepts
+
+It is NOT the same as Story Mode.
+Story Mode uses ComfyUI cartoon visuals.
+Course Mode uses Manim motion graphics.
+
+
+Core Philosophy
+---------------
+Do not rely on random AI images for technical courses.
+Use deterministic, exact, editable animations.
+
+Course Mode should have:
+- animated text
+- flowcharts
+- timelines
+- equations
+- diagrams
+- arrows
+- particles
+- highlights
+- camera motion
+- clean transitions
+
+
+System Layers
+-------------
+
+1. Scene JSON Layer
+   File: scenes_course.json
+   Contains all scenes, narration, diagram types, visual data, animation cues.
+
+2. Course Render Orchestrator
+   File: render_all.py
+   Reads scenes_course.json and renders each scene separately.
+
+3. Manim Scene Entry
+   File: render_course.py
+   Loads one scene using SCENE_INDEX and routes it to correct renderer.
+
+4. Engine Layer
+   Folder: engine/
+   Contains reusable animation primitives:
+   - theme
+   - primitives
+   - text effects
+   - camera helpers
+   - particles
+   - motion paths
+   - layout helpers
+
+5. Renderer Layer
+   Folder: renderers/
+   High-level diagram renderers:
+   - title card
+   - flowchart
+   - process
+   - timeline
+   - comparison
+   - network
+   - equation
+   - electric grid
+   - generic fallback
+
+6. Output Layer
+   Folder: generated/clips
+   Contains rendered MP4 clips.
+
+7. Final Assembly Layer
+   MoneyPrinterTurbo or FFmpeg assembles voice/audio/subtitles/final video.
+
+
+Final Workflow
+--------------
+
+    Topic
+      ↓
+    scenes_course.json
+      ↓
+    render_all.py
+      ↓
+    render_course.py
+      ↓
+    renderer by diagram_type
+      ↓
+    engine primitives
+      ↓
+    Manim MP4 clips
+      ↓
+    MoneyPrinterTurbo final video
+
+
+What Makes It Universal?
+------------------------
+The engine does not need a hardcoded template for every topic if the JSON can describe the visual using primitives:
+
+- title_card
+- flowchart
+- process
+- timeline
+- comparison
+- network
+- equation
+- array
+- cycle
+- electric_grid
+- generic
+
+A new topic can be represented by combining primitives.
+For example:
+
+Bayes theorem:
+- flowchart
+- equation
+- probability/process
+- comparison
+
+Electricity grid:
+- flowchart
+- process
+- timeline
+- network
+- comparison
+
+TCP handshake:
+- network
+- timeline
+- process
+
+Photosynthesis:
+- cycle
+- flowchart
+- process
+
+Operating system scheduling:
+- timeline
+- comparison
+- process
+
+
+Manual Editing Strategy
+-----------------------
+The best reliable workflow today is:
+
+1. Generate/fallback a scenes_course.json.
+2. Manually edit the JSON.
+3. Use rich visual_data.
+4. Render clips.
+
+This avoids failed AI code generation and gives control.
+
+
+Future AI Automation
+--------------------
+Later, an LLM can generate the JSON spec automatically.
+The LLM should not directly render video.
+It should create structured visual specs.
+
+Then the renderer converts specs into Manim animations.
+
+
+Integration With MoneyPrinterTurbo
+----------------------------------
+MoneyPrinterTurbo remains final production engine:
+- TTS
+- subtitles
+- BGM
+- final MP4
+
+Manim creates the serious course clips.
+
+
+Recommended Demo Explanation
+----------------------------
+"The earlier ComfyUI version is kept as Story Mode. It is useful for cartoon/kids/story videos. For serious Course Mode, I added a Manim-based architecture. It renders exact animated diagrams from JSON. MoneyPrinterTurbo remains the final render engine for voice, subtitles, music, and final video."

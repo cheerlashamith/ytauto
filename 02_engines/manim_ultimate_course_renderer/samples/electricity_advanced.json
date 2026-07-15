@@ -1,0 +1,1886 @@
+{
+  "meta": {
+    "subject": "How Electricity Travels from a Power Plant to Your Home",
+    "course_mode": "animated_course_with_motion_graphics",
+    "title": "From Power Plant to Plug: The Incredible Journey of Electricity",
+    "subtitle": "An Animated Science Tutorial",
+    "total_duration_seconds": 180,
+    "total_duration_readable": "3 minutes",
+    "fps": 30,
+    "resolution": "1920x1080",
+    "aspect_ratio": "16:9",
+    "style": "modern motion graphics, neon-on-dark, educational",
+    "color_palette": {
+      "background_primary": "#0A0F1E",
+      "background_secondary": "#111A2E",
+      "accent_electric_blue": "#00E5FF",
+      "accent_electric_yellow": "#FFD600",
+      "accent_warm_orange": "#FF6F00",
+      "accent_soft_green": "#00E676",
+      "accent_warm_red": "#FF1744",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#B0BEC5",
+      "text_muted": "#607D8B"
+    },
+    "fonts": {
+      "headline": "Montserrat Bold",
+      "body": "Inter Regular",
+      "accent": "Bebas Neue"
+    },
+    "voice_profile": {
+      "language": "en-US",
+      "gender": "neutral",
+      "tone": "calm, clear, educational, slightly energetic",
+      "pace_wpm": 150
+    }
+  },
+  "keywords": "electricity, power plant, generator, transformer, transmission lines, high voltage, step up transformer, step down transformer, power grid, substation, distribution lines, distribution grid, home electricity, electrical panel, circuit breaker, outlets, appliances, energy conversion, electromagnetic induction, AC current, alternating current, voltage, current, energy loss, resistance, turbine, magnet, coil, Faraday's law, smart grid, power line tower, service drop, meter, electrical safety, STEM education, science tutorial, motion graphics, animated course, infographic animation, explainer video, educational animation, physics for beginners, how electricity works, electricity for kids, electricity for students, energy education, renewable energy, power generation, electric power system, energy journey",
+  "moneyprinter_script": "Welcome to today's animated lesson: How electricity travels from a power plant all the way to your home. Electricity begins its journey at a power plant, where energy from sources like coal, water, wind, or sunlight is converted into electrical power. Inside the power plant, a turbine spins, driving a generator. As the generator's magnet rotates past copper coils, it produces electricity through electromagnetic induction. That electricity is now ready to enter the grid. But before electricity can travel far, it must pass through a step-up transformer that dramatically increases the voltage. Why? Because higher voltage helps electricity travel long distances through transmission lines with far less energy loss. After traveling hundreds of kilometers across the high-voltage grid, electricity finally reaches a substation near towns and cities. The substation contains step-down transformers that lower the voltage and switching equipment that prepares electricity for local neighborhoods. From the substation, smaller distribution lines carry electricity from the local grid to streets, shops, and homes. Just before electricity enters your house, a small pole-mounted or pad-mounted home transformer lowers the voltage one more time, bringing it down to safe household levels. Finally, electricity enters your home through a service line, reaches the electrical panel, where circuit breakers split and protect individual circuits, and then sends power through wires to lights, fans, chargers, outlets, and appliances. So the full path is: generate electricity at a plant, step up the voltage for long-distance travel, transmit it across the grid, step it down at substations, distribute it through local lines, step it down once more for your home, and use it to power your life. Electricity is invisible, but its journey is one of the most extraordinary feats of modern engineering.",
+  "scenes": [
+    {
+      "name": "scene_01_electricity_journey",
+      "title": "Electricity Journey Overview",
+      "duration_seconds": 18,
+      "diagram_type": "flowchart",
+      "voice_over": "Let's start with the big picture. Power starts at a plant, travels through the grid, and ends inside your home. Here are the five key stops along the way.",
+      "bullets": [
+        "Power starts at a plant",
+        "Travels through the grid",
+        "Ends inside your home"
+      ],
+      "visual_data": {
+        "nodes": [
+          {
+            "id": 1,
+            "label": "Power Plant",
+            "color": "accent_warm_orange",
+            "icon": "factory"
+          },
+          {
+            "id": 2,
+            "label": "Step-Up Transformer",
+            "color": "accent_electric_yellow",
+            "icon": "transformer_up"
+          },
+          {
+            "id": 3,
+            "label": "Transmission Lines",
+            "color": "accent_electric_blue",
+            "icon": "tower_line"
+          },
+          {
+            "id": 4,
+            "label": "Substation",
+            "color": "accent_soft_green",
+            "icon": "substation"
+          },
+          {
+            "id": 5,
+            "label": "Home",
+            "color": "accent_warm_red",
+            "icon": "house"
+          }
+        ],
+        "connections": [
+          {
+            "from": 1,
+            "to": 2,
+            "label": "electricity"
+          },
+          {
+            "from": 2,
+            "to": 3,
+            "label": "high voltage"
+          },
+          {
+            "from": 3,
+            "to": 4,
+            "label": "long distance"
+          },
+          {
+            "from": 4,
+            "to": 5,
+            "label": "safe power"
+          }
+        ]
+      },
+      "animation_cues": {
+        "stage_build": "five circular nodes appear one at a time, each pulsing on entry, connected by glowing electric-blue lines that draw from left to right with a moving energy spark along each path",
+        "node_animation": "each node gently floats up and down (breathing), icon spins in once with elastic easing",
+        "connection_animation": "energy sparks travel along the connecting wires in a continuous loop",
+        "bullets_animation": "bullet points appear from the bottom of the screen with a soft slide-up, each on its own beat",
+        "label_popup": "labels appear with small sparkle effect when connection completes"
+      },
+      "text_animations": [
+        {
+          "element": "node_1_label",
+          "effect": "pop_in",
+          "delay_s": 0.5
+        },
+        {
+          "element": "node_2_label",
+          "effect": "pop_in",
+          "delay_s": 1.5
+        },
+        {
+          "element": "node_3_label",
+          "effect": "pop_in",
+          "delay_s": 3.0
+        },
+        {
+          "element": "node_4_label",
+          "effect": "pop_in",
+          "delay_s": 4.5
+        },
+        {
+          "element": "node_5_label",
+          "effect": "pop_in",
+          "delay_s": 6.0
+        },
+        {
+          "element": "bullets",
+          "effect": "staggered_fade_up",
+          "stagger_s": 0.4
+        }
+      ],
+      "sound_effects": [
+        "whoosh on node entry",
+        "electric zap on each connection draw",
+        "soft ambient hum"
+      ],
+      "camera": "slow horizontal tracking from left to right, keeping all five nodes in frame"
+    },
+    {
+      "name": "scene_02_power_plant",
+      "title": "Inside the Power Plant",
+      "duration_seconds": 18,
+      "diagram_type": "process",
+      "voice_over": "Electricity begins its journey at a power plant, where energy is converted into electrical power. Different plants use different energy sources, but they all end up spinning a turbine that drives a generator.",
+      "bullets": [
+        "Energy enters",
+        "Generator spins",
+        "Electricity is produced"
+      ],
+      "visual_data": {
+        "steps": [
+          "Energy Source",
+          "Generator",
+          "Electric Power"
+        ],
+        "nodes": [
+          {
+            "id": "energy",
+            "label": "Energy Source",
+            "examples": [
+              "Coal",
+              "Water",
+              "Wind",
+              "Sunlight"
+            ],
+            "color": "accent_warm_orange"
+          },
+          {
+            "id": "generator",
+            "label": "Generator",
+            "color": "accent_electric_yellow"
+          },
+          {
+            "id": "power",
+            "label": "Electric Power",
+            "color": "accent_electric_blue"
+          }
+        ],
+        "icons": [
+          "flame_drop",
+          "spinning_turbine",
+          "lightning_bolt"
+        ]
+      },
+      "animation_cues": {
+        "energy_source_icons": "four small icons (coal pile, water drop, wind blades, sun) cycle into view one after another as examples, each icon has its own subtle motion (water ripples, wind blades spin, sun rays pulse)",
+        "arrow_draw": "a glowing arrow draws itself from the energy source block to the generator block, energy spark travels along it",
+        "generator_animation": "the generator is shown as a cross-section: a magnet and coil assembly. The magnet rotates smoothly while sparks indicate induced current",
+        "output_animation": "electric power exits the right side of the generator as a pulsing lightning stream heading toward the next scene",
+        "background": "factory silhouette with animated smoke/steam rises"
+      },
+      "text_animations": [
+        {
+          "element": "energy_label",
+          "effect": "slide_in_left",
+          "delay_s": 0.3
+        },
+        {
+          "element": "generator_label",
+          "effect": "pop_in_scale",
+          "delay_s": 1.5
+        },
+        {
+          "element": "power_label",
+          "effect": "slide_in_right",
+          "delay_s": 3.0
+        },
+        {
+          "element": "bullets",
+          "effect": "staggered_fade_in",
+          "stagger_s": 0.5
+        }
+      ],
+      "sound_effects": [
+        "turbine whoosh building up",
+        "mechanical hum during generator spin",
+        "electric crackle on output"
+      ],
+      "camera": "starts wide showing plant exterior, then pushes in toward the generator cross-section"
+    },
+    {
+      "name": "scene_03_generator",
+      "title": "How a Generator Works",
+      "duration_seconds": 20,
+      "diagram_type": "process",
+      "voice_over": "A generator works on the principle of electromagnetic induction. A magnet rotates past a coil of wire, and this changing magnetic field induces an electric current in the wire. Motion creates electricity.",
+      "bullets": [
+        "Motion creates electricity",
+        "Generator output begins",
+        "Power enters the grid"
+      ],
+      "visual_data": {
+        "steps": [
+          "Spin",
+          "Magnet + Coil",
+          "Electricity"
+        ],
+        "nodes": [
+          {
+            "id": "spin",
+            "label": "Mechanical Spin",
+            "color": "accent_warm_orange"
+          },
+          {
+            "id": "magnet_coil",
+            "label": "Magnet + Coil",
+            "color": "accent_electric_yellow"
+          },
+          {
+            "id": "electricity",
+            "label": "Electric Current",
+            "color": "accent_electric_blue"
+          }
+        ],
+        "technical_label": "Faraday's Law of Induction",
+        "animation_details": {
+          "magnet": "rotates clockwise continuously with motion blur",
+          "coil": "copper-colored wire loops glow when magnet passes",
+          "field_lines": "curved magnetic field lines appear and rotate with the magnet",
+          "current_arrows": "small arrows appear on the wire showing conventional current direction",
+          "output_spark": "animated sparkles fly out toward an AC waveform that draws itself"
+        }
+      },
+      "animation_cues": {
+        "stage_build": "left side shows a magnet (red north pole, blue south pole) with curved field lines. Right side shows a stationary coil of wire.",
+        "rotation_loop": "magnet spins continuously while field lines pulse and breathe",
+        "current_appearance": "as field lines sweep across the coil, tiny electric sparks appear inside the coil, then flow outward as a wavy line",
+        "waveform": "the wavy line morphs into a sine wave labeled 'AC Electricity' that pulses with the rotation",
+        "info_popup": "small caption appears in the corner: 'Faraday's Law — changing magnetic fields induce voltage.'"
+      },
+      "text_animations": [
+        {
+          "element": "magnet_label",
+          "effect": "pop_with_glow",
+          "delay_s": 0.5
+        },
+        {
+          "element": "coil_label",
+          "effect": "pop_with_glow",
+          "delay_s": 1.5
+        },
+        {
+          "element": "output_label",
+          "effect": "draw_with_stroke",
+          "delay_s": 3.5
+        },
+        {
+          "element": "info_caption",
+          "effect": "fade_in",
+          "delay_s": 5.0
+        }
+      ],
+      "sound_effects": [
+        "smooth mechanical rotation sound",
+        "rising electric tone tied to rotation speed",
+        "small zap on current appearance"
+      ],
+      "camera": "slow orbiting shot around the generator assembly, finishing on the AC waveform"
+    },
+    {
+      "name": "scene_04_step_up_transformer",
+      "title": "Step-Up Transformer",
+      "duration_seconds": 18,
+      "diagram_type": "comparison",
+      "voice_over": "Before electricity travels far, it passes through a step-up transformer that increases the voltage. Higher voltage means lower current for the same amount of power, and lower current means less energy lost as heat in the wires.",
+      "bullets": [
+        "Voltage increases",
+        "Current travels farther",
+        "Energy loss is reduced"
+      ],
+      "visual_data": {
+        "left_title": "Before",
+        "left_items": [
+          "Low voltage",
+          "Not ideal for distance"
+        ],
+        "right_title": "After",
+        "right_items": [
+          "High voltage",
+          "Efficient travel"
+        ],
+        "before_value": "25,000 V",
+        "after_value": "400,000 V",
+        "transformer_icon": "two_coils_with_core",
+        "equation": "P = V × I  (Power stays the same)",
+        "animation_details": {
+          "transformer": "two coils connected by a shared iron core; left coil has fewer loops, right coil has many loops",
+          "voltage_arrow": "voltage arrow grows 16x in length from left to right",
+          "current_arrow": "current arrow shrinks proportionally",
+          "loss_diagram": "small 'heat loss' droplets fall away on the 'before' side; almost none on the 'after' side"
+        }
+      },
+      "animation_cues": {
+        "split_screen": "screen splits down the middle with a vertical divider; left side dimmed red, right side glowing blue",
+        "transformer_animation": "a transformer icon appears centered, slowly rotates to reveal both windings; magnetic field lines pulse through the core",
+        "before_value": "small voltage number ticks up from 0 to 25,000 with a counter sound",
+        "after_value": "large voltage number ticks up from 0 to 400,000 with a brighter counter sound",
+        "comparison_arrows": "voltage arrow stretches rightward, current arrow shrinks leftward simultaneously",
+        "equation_reveal": "P = V × I equation appears at bottom with each symbol highlighted in turn"
+      },
+      "text_animations": [
+        {
+          "element": "before_title",
+          "effect": "slide_in_left",
+          "delay_s": 0.3
+        },
+        {
+          "element": "after_title",
+          "effect": "slide_in_right",
+          "delay_s": 0.3
+        },
+        {
+          "element": "before_items",
+          "effect": "staggered_fade_in",
+          "stagger_s": 0.4
+        },
+        {
+          "element": "after_items",
+          "effect": "staggered_fade_in",
+          "stagger_s": 0.4
+        },
+        {
+          "element": "equation",
+          "effect": "typewriter",
+          "delay_s": 5.0
+        }
+      ],
+      "sound_effects": [
+        "transformer hum",
+        "counter ticking sounds on voltage rise",
+        "deep tone on equation reveal"
+      ],
+      "camera": "centered static with subtle parallax of the transformer icon"
+    },
+    {
+      "name": "scene_05_transmission_lines",
+      "title": "High-Voltage Transmission",
+      "duration_seconds": 20,
+      "diagram_type": "timeline",
+      "voice_over": "Higher voltage helps electricity travel long distances through transmission lines with much less energy loss. The current flows across tall steel towers strung with thick cables, crossing hundreds of kilometers of countryside.",
+      "bullets": [
+        "High voltage lines",
+        "Long-distance travel",
+        "Across the power grid"
+      ],
+      "visual_data": {
+        "steps": [
+          "Plant",
+          "Tower",
+          "Grid",
+          "City"
+        ],
+        "stops": [
+          {
+            "id": 1,
+            "label": "Power Plant",
+            "color": "accent_warm_orange"
+          },
+          {
+            "id": 2,
+            "label": "Tower 1",
+            "color": "accent_electric_yellow"
+          },
+          {
+            "id": 3,
+            "label": "Tower 2",
+            "color": "accent_electric_yellow"
+          },
+          {
+            "id": 4,
+            "label": "Grid Hub",
+            "color": "accent_electric_blue"
+          },
+          {
+            "id": 5,
+            "label": "City Substation",
+            "color": "accent_soft_green"
+          }
+        ],
+        "distance_label": "Hundreds of kilometers",
+        "voltage_label": "Up to 765,000 V",
+        "animation_details": {
+          "tower_design": "lattice steel towers with three crossarms holding bundled conductors",
+          "wires": "thick lines sag slightly between towers in a catenary curve",
+          "energy_spark": "bright electric-blue spark travels along the wire from left to right",
+          "background": "rolling hills scroll past slowly for parallax",
+          "sky": "gradient sky with distant clouds drifting"
+        }
+      },
+      "animation_cues": {
+        "timeline_build": "horizontal timeline with five labeled stops appears from left to right with a ruler-like tick animation",
+        "tower_construction": "each tower assembles itself piece by piece: base, vertical columns, crossarms, then wires connect to the next tower",
+        "energy_flow": "an electric spark travels continuously along the wire from the plant to the city, with motion blur and a faint trailing glow",
+        "distance_counter": "a kilometer counter ticks up at the bottom of the screen as the spark progresses",
+        "skyline_reveal": "at the end, a stylized city silhouette rises into view on the right"
+      },
+      "text_animations": [
+        {
+          "element": "stop_labels",
+          "effect": "pop_in_sequentially",
+          "stagger_s": 0.8
+        },
+        {
+          "element": "voltage_label",
+          "effect": "fade_in_with_emphasis",
+          "delay_s": 4.0
+        },
+        {
+          "element": "distance_label",
+          "effect": "typewriter",
+          "delay_s": 6.0
+        }
+      ],
+      "sound_effects": [
+        "wind whoosh during tower construction",
+        "electric hum on energy flow",
+        "subtle rumble of distance"
+      ],
+      "camera": "long horizontal pan following the energy spark from plant to city"
+    },
+    {
+      "name": "scene_06_substation",
+      "title": "The Substation",
+      "duration_seconds": 20,
+      "diagram_type": "process",
+      "voice_over": "After traveling across the grid, electricity reaches a substation near towns and cities. The substation lowers the voltage and prepares electricity for local neighborhoods using step-down transformers and switching equipment.",
+      "bullets": [
+        "Voltage is reduced",
+        "Power is controlled",
+        "Sent to neighborhoods"
+      ],
+      "visual_data": {
+        "steps": [
+          "High Voltage In",
+          "Substation",
+          "Lower Voltage Out"
+        ],
+        "nodes": [
+          {
+            "id": "input",
+            "label": "High Voltage",
+            "value": "400,000 V",
+            "color": "accent_electric_yellow"
+          },
+          {
+            "id": "substation",
+            "label": "Substation",
+            "components": [
+              "Step-Down Transformer",
+              "Circuit Breakers",
+              "Busbars",
+              "Switchgear"
+            ],
+            "color": "accent_soft_green"
+          },
+          {
+            "id": "output",
+            "label": "Lower Voltage",
+            "value": "33,000 V",
+            "color": "accent_electric_blue"
+          }
+        ],
+        "substation_components": [
+          {
+            "name": "Step-Down Transformer",
+            "icon": "transformer_down"
+          },
+          {
+            "name": "Circuit Breakers",
+            "icon": "breaker"
+          },
+          {
+            "name": "Busbars",
+            "icon": "busbar"
+          },
+          {
+            "name": "Switchgear",
+            "icon": "switch"
+          }
+        ]
+      },
+      "animation_cues": {
+        "scene_build": "substation yard fades in: fence perimeter, gravel ground, multiple transformer units, control building",
+        "transformer_units": "large oil-filled transformer tanks labeled clearly; one in the center steps voltage down with an animated dial that drops from 400kV to 33kV",
+        "circuit_breakers": "small breaker icons open and close with a 'click' animation to demonstrate control",
+        "voltage_arrow": "voltage bar shrinks dramatically from left to right",
+        "outgoing_lines": "smaller distribution lines fan out from the substation toward the right edge of the screen toward a small neighborhood silhouette"
+      },
+      "text_animations": [
+        {
+          "element": "input_label",
+          "effect": "pop_with_glow",
+          "delay_s": 0.5
+        },
+        {
+          "element": "substation_label",
+          "effect": "scale_up_center",
+          "delay_s": 2.0
+        },
+        {
+          "element": "output_label",
+          "effect": "pop_with_glow",
+          "delay_s": 5.0
+        },
+        {
+          "element": "components_list",
+          "effect": "staggered_slide_in",
+          "stagger_s": 0.4
+        }
+      ],
+      "sound_effects": [
+        "industrial hum",
+        "transformer buzz",
+        "click on breaker operation"
+      ],
+      "camera": "starts wide showing full substation yard, then slowly pushes in toward the central transformer"
+    },
+    {
+      "name": "scene_07_distribution_grid",
+      "title": "Distribution Grid",
+      "duration_seconds": 18,
+      "diagram_type": "network",
+      "voice_over": "From the substation, smaller distribution lines carry electricity from the local grid to streets, shops, and homes. Wooden poles hold up wires that branch out like a tree across the neighborhood.",
+      "bullets": [
+        "Smaller power lines",
+        "Local streets",
+        "Homes connected"
+      ],
+      "visual_data": {
+        "center": "Local Grid",
+        "center_label": "Local Substation",
+        "nodes": [
+          {
+            "id": "pole",
+            "label": "Street Pole",
+            "color": "accent_electric_yellow",
+            "icon": "pole"
+          },
+          {
+            "id": "house_a",
+            "label": "House A",
+            "color": "accent_warm_red",
+            "icon": "house"
+          },
+          {
+            "id": "house_b",
+            "label": "House B",
+            "color": "accent_warm_red",
+            "icon": "house"
+          },
+          {
+            "id": "shop",
+            "label": "Shop",
+            "color": "accent_soft_green",
+            "icon": "shop"
+          }
+        ],
+        "voltage_label": "Around 7,000–33,000 V",
+        "background": "neighborhood map with roads, trees, and small buildings"
+      },
+      "animation_cues": {
+        "network_build": "central node (substation) appears first; then branches grow outward like a tree with smooth bezier curves toward each endpoint",
+        "pole_animation": "each wooden pole plants itself with a small bounce, then wires connect with a sparkle effect",
+        "house_animation": "each house icon scales up from 0 to full size with elastic easing, windows light up one by one",
+        "shop_animation": "shop icon pops in with a small 'open' sign that flips on",
+        "energy_flow": "small electric sparks pulse outward from the center along each branch, reaching each endpoint with a soft glow"
+      },
+      "text_animations": [
+        {
+          "element": "center_label",
+          "effect": "scale_in",
+          "delay_s": 0.3
+        },
+        {
+          "element": "branch_labels",
+          "effect": "fade_in_sequentially",
+          "stagger_s": 0.6
+        },
+        {
+          "element": "voltage_label",
+          "effect": "fade_in",
+          "delay_s": 4.0
+        }
+      ],
+      "sound_effects": [
+        "gentle tree-grow chime for branches",
+        "soft housewarming tone for each home",
+        "low ambient hum"
+      ],
+      "camera": "top-down view with gentle zoom out as the network expands"
+    },
+    {
+      "name": "scene_08_home_transformer",
+      "title": "Home Transformer",
+      "duration_seconds": 16,
+      "diagram_type": "comparison",
+      "voice_over": "Before electricity enters your house, a home transformer lowers the voltage one more time for safe use. What arrives on the street at thousands of volts becomes just 120 or 240 volts inside your walls.",
+      "bullets": [
+        "Voltage lowered again",
+        "Safe for home use",
+        "Ready for appliances"
+      ],
+      "visual_data": {
+        "left_title": "Street Line",
+        "left_items": [
+          "Higher voltage",
+          "Distribution power"
+        ],
+        "right_title": "Home Line",
+        "right_items": [
+          "Lower voltage",
+          "Safe supply"
+        ],
+        "before_value": "7,200 V",
+        "after_value": "120 V / 240 V",
+        "transformer_style": "cylindrical can transformer mounted on a pole",
+        "house_icon": "two-story house with visible service drop wire"
+      },
+      "animation_cues": {
+        "before_panel": "left side shows a street pole with thick wires; voltage counter shows 7,200 V ticking down",
+        "transformer_drop": "the cylindrical transformer pulses and shrinks the voltage with each pulse beat",
+        "after_panel": "right side shows a house with a thin service drop wire feeding into the roof; voltage counter shows 120 V",
+        "comparison_split": "the two panels face each other with the transformer in the middle, arrow showing voltage drop"
+      },
+      "text_animations": [
+        {
+          "element": "street_title",
+          "effect": "slide_in_left",
+          "delay_s": 0.3
+        },
+        {
+          "element": "home_title",
+          "effect": "slide_in_right",
+          "delay_s": 0.3
+        },
+        {
+          "element": "before_value",
+          "effect": "counter_animation",
+          "duration_s": 2.0
+        },
+        {
+          "element": "after_value",
+          "effect": "counter_animation",
+          "duration_s": 2.0
+        },
+        {
+          "element": "bullets",
+          "effect": "staggered_fade_in",
+          "stagger_s": 0.5
+        }
+      ],
+      "sound_effects": [
+        "pole transformer hum",
+        "voltage counter clicks",
+        "soft chime on reaching 120 V"
+      ],
+      "camera": "centered static with subtle pan between left and right panels"
+    },
+    {
+      "name": "scene_09_electrical_panel",
+      "title": "Electrical Panel Inside Your Home",
+      "duration_seconds": 18,
+      "diagram_type": "flowchart",
+      "voice_over": "Finally, electricity enters the electrical panel, which sends power to lights, fans, chargers, outlets, and appliances. Circuit breakers inside the panel split the power into individual circuits and protect your home from overloads.",
+      "bullets": [
+        "Service line enters",
+        "Panel divides power",
+        "Devices receive electricity"
+      ],
+      "visual_data": {
+        "nodes": [
+          {
+            "id": "service_line",
+            "label": "Service Line",
+            "color": "accent_electric_blue"
+          },
+          {
+            "id": "meter",
+            "label": "Electric Meter",
+            "color": "accent_electric_yellow"
+          },
+          {
+            "id": "panel",
+            "label": "Electrical Panel",
+            "color": "accent_soft_green"
+          },
+          {
+            "id": "circuits",
+            "label": "Branch Circuits",
+            "color": "accent_warm_orange"
+          },
+          {
+            "id": "outlets",
+            "label": "Outlets",
+            "color": "accent_warm_red"
+          },
+          {
+            "id": "appliances",
+            "label": "Appliances",
+            "color": "accent_warm_red"
+          }
+        ],
+        "panel_components": [
+          "Main Breaker",
+          "Branch Breakers",
+          "Bus Bars",
+          "Neutral Bar",
+          "Ground Bar"
+        ],
+        "appliance_examples": [
+          "Lights",
+          "Fans",
+          "Chargers",
+          "TV",
+          "Refrigerator",
+          "AC Unit"
+        ]
+      },
+      "animation_cues": {
+        "service_line_in": "service drop wire enters the frame from the upper left, snakes down the wall to the meter",
+        "meter_animation": "the digital meter face spins its display showing kilowatt-hours used",
+        "panel_open": "the metal panel door swings open with a hinge animation, revealing rows of breakers",
+        "breakers_click": "each breaker flips ON one by one with a satisfying click, sending power down its branch",
+        "branch_lines": "wires extend from each breaker to specific rooms: kitchen, living room, bedroom, garage",
+        "device_icons": "icons for lights, fans, chargers, TV, fridge, and AC pop in and glow with a subtle warm light indicating they're powered"
+      },
+      "text_animations": [
+        {
+          "element": "node_labels",
+          "effect": "pop_in_sequentially",
+          "stagger_s": 0.7
+        },
+        {
+          "element": "panel_components",
+          "effect": "staggered_list_reveal",
+          "stagger_s": 0.3
+        },
+        {
+          "element": "appliance_labels",
+          "effect": "fade_in_with_glow",
+          "stagger_s": 0.4
+        }
+      ],
+      "sound_effects": [
+        "door hinge on panel opening",
+        "satisfying breaker clicks",
+        "device power-on beeps",
+        "subtle hum of active devices"
+      ],
+      "camera": "starts on the meter, dollies toward the panel, then pulls back to show the full home layout"
+    },
+    {
+      "name": "scene_10_summary",
+      "title": "Recap and Summary",
+      "duration_seconds": 18,
+      "diagram_type": "flowchart",
+      "voice_over": "Let's recap the full path. Generate electricity at the plant. Step up the voltage for long-distance travel. Transmit it across the high-voltage grid. Step it down at substations. Distribute it through local lines to your home. And finally, use it to power your life.",
+      "bullets": [
+        "Generate",
+        "Step up",
+        "Transmit",
+        "Step down",
+        "Use"
+      ],
+      "visual_data": {
+        "nodes": [
+          {
+            "id": 1,
+            "label": "Generate",
+            "color": "accent_warm_orange"
+          },
+          {
+            "id": 2,
+            "label": "Step Up",
+            "color": "accent_electric_yellow"
+          },
+          {
+            "id": 3,
+            "label": "Transmit",
+            "color": "accent_electric_blue"
+          },
+          {
+            "id": 4,
+            "label": "Step Down",
+            "color": "accent_soft_green"
+          },
+          {
+            "id": 5,
+            "label": "Use",
+            "color": "accent_warm_red"
+          }
+        ],
+        "tagline": "Generate. Step Up. Transmit. Step Down. Distribute. Use.",
+        "closing_message": "Electricity is invisible — but its journey is one of the most extraordinary feats of modern engineering."
+      },
+      "animation_cues": {
+        "summary_timeline": "all five nodes reappear in a single horizontal timeline with the same visual style as scene 1, but condensed",
+        "energy_path": "an energy spark travels along the entire timeline from node 1 to node 5, then loops back to node 1 for a hypnotic continuous loop",
+        "tagline_reveal": "tagline text appears with a typewriter effect, each word highlighting as it's spoken",
+        "closing_message": "closing message fades in centered, with a soft glow underline",
+        "background": "all previous scene backgrounds briefly cycle as a montage behind the timeline, then settle on a calm dark gradient"
+      },
+      "text_animations": [
+        {
+          "element": "node_labels",
+          "effect": "pop_in_with_glow",
+          "stagger_s": 0.6
+        },
+        {
+          "element": "tagline",
+          "effect": "typewriter_with_word_highlight",
+          "duration_s": 4.0
+        },
+        {
+          "element": "closing_message",
+          "effect": "fade_in_with_glow_underline",
+          "delay_s": 6.0
+        }
+      ],
+      "sound_effects": [
+        "synthesized ascending chime matching each node",
+        "soft electric whoosh on tagline",
+        "calm outro swell"
+      ],
+      "camera": "wide centered shot with a gentle slow zoom in"
+    }
+  ],
+  "global_animation_settings": {
+    "default_easing": "easeInOutCubic",
+    "default_duration_s": 0.6,
+    "text_default_easing": "easeOutQuart",
+    "particle_field": "always-on electric-blue particles drifting upward in background",
+    "grain_overlay": "subtle film grain for cinematic feel",
+    "glow_filter": "soft outer glow on all electric-themed elements",
+    "transitions": "smooth cross-dissolve with a brief energy-flash between scenes",
+    "text_anti_aliasing": "subpixel",
+    "subtitles": {
+      "enabled": true,
+      "font": "Inter Regular",
+      "size": 36,
+      "color": "#FFFFFF",
+      "background": "rgba(0,0,0,0.6)",
+      "position": "bottom_center",
+      "animation": "word-by-word karaoke highlight synced to voice"
+    }
+  },
+  "production_notes": {
+    "rendering_software": "After Effects / Motion / Cavalry / Blender (any capable of motion graphics)",
+    "asset_requirements": [
+      "Custom illustrated power plant icon set",
+      "Stylized transformer, substation, and tower 2D/3D models",
+      "Animated lightning/electric spark elements",
+      "Hand-drawn or vector-based home and appliance icons",
+      "Sine wave generator for AC electricity visual"
+    ],
+    "audio_stack": [
+      "Voice over (human or AI narration)",
+      "Background music: calm, electronic, ambient",
+      "SFX library for hums, clicks, zaps, whooshes"
+    ],
+    "accessibility": {
+      "captions": "full captions with synchronized word highlights",
+      "color_blind_safe": "palette verified for deuteranopia and protanopia",
+      "high_contrast_mode": "optional toggle for text"
+    },
+    "language_versions_planned": [
+      "en-US",
+      "en-GB",
+      "es-ES",
+      "fr-FR",
+      "hi-IN",
+      "zh-CN"
+    ],
+    "delivery_formats": [
+      "16:9 master video",
+      "9:16 vertical cut for Shorts/Reels",
+      "1:1 square for social"
+    ]
+  },
+  "extended_animation_timeline": {
+    "description": "Second-by-second animation beat sheet for the full 3-minute course.",
+    "format": "List of beat objects with timecode, on-screen element, and animation action.",
+    "beats": [
+      {
+        "t": "0.0s",
+        "element": "intro_background",
+        "action": "dark navy gradient fades in from black, electric-blue particles start drifting upward"
+      },
+      {
+        "t": "0.3s",
+        "element": "course_label",
+        "action": "slides in from left edge with 12px slide, opacity 0 to 1 over 0.6s"
+      },
+      {
+        "t": "0.8s",
+        "element": "main_title_letter_1",
+        "action": "first letter of main title drops from top with bounce easing"
+      },
+      {
+        "t": "0.85s",
+        "element": "main_title_letter_2",
+        "action": "second letter drops, stagger 0.05s"
+      },
+      {
+        "t": "0.9s",
+        "element": "main_title_letter_3",
+        "action": "third letter drops, stagger 0.05s"
+      },
+      {
+        "t": "0.95s",
+        "element": "main_title_letter_4",
+        "action": "fourth letter drops, stagger 0.05s"
+      },
+      {
+        "t": "1.0s",
+        "element": "main_title_remaining",
+        "action": "remaining letters continue dropping with the same stagger until full title shown"
+      },
+      {
+        "t": "1.6s",
+        "element": "subtitle",
+        "action": "fades in below title; letter-spacing expands from -2px to +4px"
+      },
+      {
+        "t": "2.2s",
+        "element": "lightning_corner",
+        "action": "two corner lightning bolts crackle with brief flash"
+      },
+      {
+        "t": "3.0s",
+        "element": "title_card",
+        "action": "title zooms forward 8% and cross-dissolves to scene 1 background"
+      },
+      {
+        "t": "4.0s",
+        "element": "node_1_power_plant",
+        "action": "circle node 1 pops in with elastic scale 0.5 to 1.0"
+      },
+      {
+        "t": "4.5s",
+        "element": "label_1",
+        "action": "label 'Power Plant' fades in with soft glow"
+      },
+      {
+        "t": "5.5s",
+        "element": "node_2_transformer",
+        "action": "circle node 2 pops in to the right of node 1"
+      },
+      {
+        "t": "6.0s",
+        "element": "label_2",
+        "action": "label 'Step-Up Transformer' fades in"
+      },
+      {
+        "t": "6.2s",
+        "element": "connection_1_to_2",
+        "action": "glowing electric-blue line draws from node 1 to node 2 over 0.8s"
+      },
+      {
+        "t": "6.4s",
+        "element": "spark_1_to_2",
+        "action": "bright spark travels along connection 1->2 with motion blur"
+      },
+      {
+        "t": "7.5s",
+        "element": "node_3_transmission",
+        "action": "circle node 3 pops in"
+      },
+      {
+        "t": "8.0s",
+        "element": "label_3",
+        "action": "label fades in"
+      },
+      {
+        "t": "8.2s",
+        "element": "connection_2_to_3",
+        "action": "line draws with energy spark"
+      },
+      {
+        "t": "9.5s",
+        "element": "node_4_substation",
+        "action": "circle node 4 pops in"
+      },
+      {
+        "t": "10.0s",
+        "element": "label_4",
+        "action": "label fades in"
+      },
+      {
+        "t": "10.2s",
+        "element": "connection_3_to_4",
+        "action": "line draws with energy spark"
+      },
+      {
+        "t": "11.5s",
+        "element": "node_5_home",
+        "action": "circle node 5 pops in"
+      },
+      {
+        "t": "12.0s",
+        "element": "label_5",
+        "action": "label fades in"
+      },
+      {
+        "t": "12.2s",
+        "element": "connection_4_to_5",
+        "action": "line draws with energy spark"
+      },
+      {
+        "t": "13.0s",
+        "element": "continuous_sparks",
+        "action": "all five connections now have continuous energy sparks looping"
+      },
+      {
+        "t": "14.0s",
+        "element": "bullet_1",
+        "action": "slide up from below with fade in"
+      },
+      {
+        "t": "14.4s",
+        "element": "bullet_2",
+        "action": "slide up, stagger 0.4s"
+      },
+      {
+        "t": "14.8s",
+        "element": "bullet_3",
+        "action": "slide up, stagger 0.4s"
+      },
+      {
+        "t": "16.0s",
+        "element": "scene_transition",
+        "action": "scene 1 cross-dissolves into scene 2 with energy flash"
+      },
+      {
+        "t": "17.0s",
+        "element": "plant_exterior",
+        "action": "factory silhouette scales up from center, smoke plumes rise"
+      },
+      {
+        "t": "18.0s",
+        "element": "energy_icon_coal",
+        "action": "small coal pile icon pops in with dust puff"
+      },
+      {
+        "t": "18.5s",
+        "element": "energy_icon_water",
+        "action": "water drop icon pops in with ripple"
+      },
+      {
+        "t": "19.0s",
+        "element": "energy_icon_wind",
+        "action": "wind blades icon pops in, blades start spinning"
+      },
+      {
+        "t": "19.5s",
+        "element": "energy_icon_sun",
+        "action": "sun icon pops in, rays pulse outward"
+      },
+      {
+        "t": "20.5s",
+        "element": "energy_arrow",
+        "action": "arrow draws from energy source block to generator block"
+      },
+      {
+        "t": "21.0s",
+        "element": "generator_box",
+        "action": "generator cross-section box pops in at center"
+      },
+      {
+        "t": "22.0s",
+        "element": "magnet",
+        "action": "magnet appears inside generator, starts rotating clockwise smoothly"
+      },
+      {
+        "t": "22.5s",
+        "element": "coil",
+        "action": "copper coil wire loops appear around magnet"
+      },
+      {
+        "t": "23.0s",
+        "element": "field_lines",
+        "action": "curved magnetic field lines appear, rotate with magnet"
+      },
+      {
+        "t": "24.0s",
+        "element": "current_sparks",
+        "action": "tiny electric sparks appear inside coil, flow outward"
+      },
+      {
+        "t": "25.0s",
+        "element": "output_strip",
+        "action": "electricity exits right side of generator as glowing stream"
+      },
+      {
+        "t": "26.0s",
+        "element": "bullets_scene2",
+        "action": "three bullets slide up sequentially"
+      },
+      {
+        "t": "28.0s",
+        "element": "scene_transition",
+        "action": "scene 2 dissolves to scene 3"
+      },
+      {
+        "t": "29.0s",
+        "element": "scene3_background",
+        "action": "technical/diagram-style background fades in with grid lines"
+      },
+      {
+        "t": "30.0s",
+        "element": "magnet_left",
+        "action": "magnet (N red, S blue) appears on left with curved field lines"
+      },
+      {
+        "t": "31.5s",
+        "element": "coil_right",
+        "action": "copper coil appears on right"
+      },
+      {
+        "t": "33.0s",
+        "element": "rotation_loop",
+        "action": "magnet begins rotating clockwise continuously"
+      },
+      {
+        "t": "35.0s",
+        "element": "induced_sparks",
+        "action": "sparks appear inside coil each time magnet passes closest point"
+      },
+      {
+        "t": "36.5s",
+        "element": "waveform",
+        "action": "sine wave begins drawing on right side, morphing from sparks"
+      },
+      {
+        "t": "38.0s",
+        "element": "waveform_label",
+        "action": "'AC Electricity' label fades in below waveform"
+      },
+      {
+        "t": "39.0s",
+        "element": "info_caption",
+        "action": "'Faraday's Law' caption fades in bottom corner"
+      },
+      {
+        "t": "41.0s",
+        "element": "bullets_scene3",
+        "action": "three bullets fade in with staggered timing"
+      },
+      {
+        "t": "44.0s",
+        "element": "scene_transition",
+        "action": "scene 3 dissolves into split-screen comparison"
+      },
+      {
+        "t": "45.0s",
+        "element": "split_divider",
+        "action": "vertical divider draws down center of screen"
+      },
+      {
+        "t": "45.5s",
+        "element": "left_panel_red_tint",
+        "action": "left side tints red (warning-style)"
+      },
+      {
+        "t": "46.0s",
+        "element": "right_panel_blue_tint",
+        "action": "right side tints blue (efficient-style)"
+      },
+      {
+        "t": "47.0s",
+        "element": "transformer_icon",
+        "action": "transformer icon appears in center, slowly rotates"
+      },
+      {
+        "t": "48.5s",
+        "element": "before_value_counter",
+        "action": "voltage counter on left ticks from 0 to 25,000"
+      },
+      {
+        "t": "50.5s",
+        "element": "after_value_counter",
+        "action": "voltage counter on right ticks from 0 to 400,000"
+      },
+      {
+        "t": "52.0s",
+        "element": "voltage_arrow_grow",
+        "action": "voltage arrow on right stretches 16x in length"
+      },
+      {
+        "t": "53.0s",
+        "element": "current_arrow_shrink",
+        "action": "current arrow shrinks proportionally on left"
+      },
+      {
+        "t": "54.0s",
+        "element": "heat_loss_drops",
+        "action": "small 'heat loss' droplets fade in on left, fade out on right"
+      },
+      {
+        "t": "55.5s",
+        "element": "equation",
+        "action": "'P = V × I' types in at bottom"
+      },
+      {
+        "t": "57.5s",
+        "element": "bullets_scene4",
+        "action": "three bullets fade in"
+      },
+      {
+        "t": "60.0s",
+        "element": "scene_transition",
+        "action": "scene 4 dissolves into scene 5 transmission view"
+      },
+      {
+        "t": "61.0s",
+        "element": "landscape_background",
+        "action": "rolling hills and gradient sky fade in"
+      },
+      {
+        "t": "62.0s",
+        "element": "tower_1_assembly",
+        "action": "tower 1 self-assembles: base, columns, crossarms, insulators"
+      },
+      {
+        "t": "64.0s",
+        "element": "tower_2_assembly",
+        "action": "tower 2 assembles further down the timeline"
+      },
+      {
+        "t": "66.0s",
+        "element": "tower_3_assembly",
+        "action": "tower 3 assembles"
+      },
+      {
+        "t": "67.0s",
+        "element": "wire_connect",
+        "action": "wires connect between towers with catenary sag"
+      },
+      {
+        "t": "68.0s",
+        "element": "energy_spark_journey",
+        "action": "bright spark begins traveling from plant toward city"
+      },
+      {
+        "t": "70.0s",
+        "element": "distance_counter",
+        "action": "km counter ticks up as spark progresses"
+      },
+      {
+        "t": "72.0s",
+        "element": "voltage_label",
+        "action": "'Up to 765,000 V' label fades in"
+      },
+      {
+        "t": "74.0s",
+        "element": "city_silhouette_rises",
+        "action": "city skyline rises on right edge of frame"
+      },
+      {
+        "t": "76.0s",
+        "element": "bullets_scene5",
+        "action": "three bullets fade in"
+      },
+      {
+        "t": "79.0s",
+        "element": "scene_transition",
+        "action": "scene 5 dissolves into scene 6 substation yard"
+      },
+      {
+        "t": "80.0s",
+        "element": "yard_fence",
+        "action": "substation fence perimeter draws in"
+      },
+      {
+        "t": "81.0s",
+        "element": "transformer_units",
+        "action": "multiple transformer tanks drop in with subtle bounce"
+      },
+      {
+        "t": "82.5s",
+        "element": "control_building",
+        "action": "small control building slides in"
+      },
+      {
+        "t": "83.5s",
+        "element": "input_lines",
+        "action": "high-voltage input lines enter from left top"
+      },
+      {
+        "t": "84.5s",
+        "element": "voltage_drop_animation",
+        "action": "voltage dial drops from 400kV to 33kV with smooth easing"
+      },
+      {
+        "t": "86.5s",
+        "element": "breaker_clicks",
+        "action": "circuit breakers flip ON/OFF with click animation"
+      },
+      {
+        "t": "88.0s",
+        "element": "outgoing_lines",
+        "action": "distribution lines fan out from substation toward right"
+      },
+      {
+        "t": "89.0s",
+        "element": "neighborhood_silhouette",
+        "action": "small neighborhood silhouette fades in on right edge"
+      },
+      {
+        "t": "90.0s",
+        "element": "bullets_scene6",
+        "action": "three bullets fade in"
+      },
+      {
+        "t": "93.0s",
+        "element": "scene_transition",
+        "action": "scene 6 dissolves to scene 7 neighborhood map view"
+      },
+      {
+        "t": "94.0s",
+        "element": "map_background",
+        "action": "neighborhood map fades in with roads, trees, small buildings"
+      },
+      {
+        "t": "95.0s",
+        "element": "center_substation_node",
+        "action": "central substation node scales in"
+      },
+      {
+        "t": "96.0s",
+        "element": "branches_grow",
+        "action": "tree-like branches grow outward from center using bezier curves"
+      },
+      {
+        "t": "98.0s",
+        "element": "poles_plant",
+        "action": "each wooden pole plants itself with a small bounce"
+      },
+      {
+        "t": "99.0s",
+        "element": "wires_connect",
+        "action": "wires connect along each branch with sparkle effect"
+      },
+      {
+        "t": "100.0s",
+        "element": "house_a",
+        "action": "house A scales in from 0 with elastic easing"
+      },
+      {
+        "t": "101.0s",
+        "element": "windows_light_up",
+        "action": "windows in house A light up one by one"
+      },
+      {
+        "t": "101.5s",
+        "element": "house_b",
+        "action": "house B scales in"
+      },
+      {
+        "t": "102.0s",
+        "element": "windows_light_up_b",
+        "action": "windows in house B light up"
+      },
+      {
+        "t": "102.5s",
+        "element": "shop",
+        "action": "shop pops in, 'Open' sign flips on"
+      },
+      {
+        "t": "104.0s",
+        "element": "energy_sparks_outward",
+        "action": "small sparks pulse outward from center to endpoints"
+      },
+      {
+        "t": "106.0s",
+        "element": "bullets_scene7",
+        "action": "three bullets fade in"
+      },
+      {
+        "t": "109.0s",
+        "element": "scene_transition",
+        "action": "scene 7 dissolves to scene 8 split view"
+      },
+      {
+        "t": "110.0s",
+        "element": "street_panel_left",
+        "action": "left panel shows street pole with thick wires"
+      },
+      {
+        "t": "111.0s",
+        "element": "before_counter",
+        "action": "voltage counter shows 7,200 V ticking down"
+      },
+      {
+        "t": "113.0s",
+        "element": "transformer_pulse",
+        "action": "central cylindrical transformer pulses once, voltage drops"
+      },
+      {
+        "t": "115.0s",
+        "element": "home_panel_right",
+        "action": "right panel shows house with service drop wire"
+      },
+      {
+        "t": "116.0s",
+        "element": "after_counter",
+        "action": "voltage counter shows 120 V"
+      },
+      {
+        "t": "118.0s",
+        "element": "bullets_scene8",
+        "action": "three bullets fade in"
+      },
+      {
+        "t": "121.0s",
+        "element": "scene_transition",
+        "action": "scene 8 dissolves into scene 9 home interior"
+      },
+      {
+        "t": "122.0s",
+        "element": "service_drop_wire",
+        "action": "service drop wire enters from upper left, snakes down wall to meter"
+      },
+      {
+        "t": "123.0s",
+        "element": "meter_display",
+        "action": "digital meter face spins, showing kWh usage"
+      },
+      {
+        "t": "124.5s",
+        "element": "panel_door_swing",
+        "action": "electrical panel door swings open on hinge"
+      },
+      {
+        "t": "125.5s",
+        "element": "breakers_revealed",
+        "action": "rows of breakers revealed inside panel"
+      },
+      {
+        "t": "126.5s",
+        "element": "breaker_1_click",
+        "action": "breaker 1 flips ON with click"
+      },
+      {
+        "t": "127.0s",
+        "element": "breaker_2_click",
+        "action": "breaker 2 flips ON"
+      },
+      {
+        "t": "127.5s",
+        "element": "breaker_3_click",
+        "action": "breaker 3 flips ON"
+      },
+      {
+        "t": "128.0s",
+        "element": "breaker_4_click",
+        "action": "breaker 4 flips ON"
+      },
+      {
+        "t": "128.5s",
+        "element": "breaker_5_click",
+        "action": "breaker 5 flips ON"
+      },
+      {
+        "t": "129.0s",
+        "element": "branch_wires_extend",
+        "action": "wires extend from breakers to specific rooms (kitchen, living, bedroom, garage)"
+      },
+      {
+        "t": "131.0s",
+        "element": "device_lights",
+        "action": "icons for lights, fans, chargers, TV, fridge, AC pop in and glow"
+      },
+      {
+        "t": "133.0s",
+        "element": "bullets_scene9",
+        "action": "three bullets fade in"
+      },
+      {
+        "t": "136.0s",
+        "element": "scene_transition",
+        "action": "scene 9 dissolves into scene 10 summary timeline"
+      },
+      {
+        "t": "137.0s",
+        "element": "summary_timeline",
+        "action": "five condensed nodes appear in single horizontal timeline"
+      },
+      {
+        "t": "139.0s",
+        "element": "energy_spark_loop",
+        "action": "energy spark travels from node 1 to node 5 in a loop"
+      },
+      {
+        "t": "144.0s",
+        "element": "tagline_reveal",
+        "action": "tagline types in word by word: 'Generate. Step Up. Transmit. Step Down. Distribute. Use.'"
+      },
+      {
+        "t": "148.0s",
+        "element": "closing_message",
+        "action": "closing message fades in centered with glow underline"
+      },
+      {
+        "t": "152.0s",
+        "element": "scene_transition",
+        "action": "scene 10 dissolves into outro"
+      },
+      {
+        "t": "153.0s",
+        "element": "outro_main_message",
+        "action": "letters of 'Thanks for Watching!' drop from above with bounce"
+      },
+      {
+        "t": "155.0s",
+        "element": "outro_secondary",
+        "action": "'Subscribe for more animated science lessons' fades in"
+      },
+      {
+        "t": "157.0s",
+        "element": "end_card_thumbnail",
+        "action": "next video thumbnail slides in from right"
+      },
+      {
+        "t": "160.0s",
+        "element": "final_fade",
+        "action": "outro fades to black with soft particle field lingering"
+      }
+    ]
+  },
+  "extended_voice_script_with_cues": {
+    "description": "Voice-over lines aligned to timecodes, with on-screen visual cues noted for each line.",
+    "lines": [
+      {
+        "t": "0.0s–4.0s",
+        "voice": "Welcome to today's animated lesson: How electricity travels from a power plant all the way to your home.",
+        "visual_cue": "intro title card animation"
+      },
+      {
+        "t": "4.0s–8.0s",
+        "voice": "Let's start with the big picture. Power starts at a plant, travels through the grid, and ends inside your home.",
+        "visual_cue": "scene 1 nodes pop in sequentially"
+      },
+      {
+        "t": "8.0s–12.0s",
+        "voice": "These five stops make up the entire journey from generation to use.",
+        "visual_cue": "scene 1 all five nodes fully visible, sparks looping on connections"
+      },
+      {
+        "t": "13.0s–16.0s",
+        "voice": "Now let's zoom into the first stop: the power plant.",
+        "visual_cue": "scene transition with energy flash"
+      },
+      {
+        "t": "17.0s–22.0s",
+        "voice": "Electricity begins its journey at a power plant, where energy from sources like coal, water, wind, or sunlight is converted into electrical power.",
+        "visual_cue": "scene 2 energy source icons cycle in"
+      },
+      {
+        "t": "22.0s–27.0s",
+        "voice": "Inside the power plant, a turbine spins, driving a generator. As the generator's magnet rotates past copper coils, it produces electricity through electromagnetic induction.",
+        "visual_cue": "scene 2 generator cross-section rotates, sparks fly"
+      },
+      {
+        "t": "28.0s–33.0s",
+        "voice": "That electricity is now ready to enter the grid. But before it travels far, it must pass through a step-up transformer.",
+        "visual_cue": "scene 3 begins, magnet and coil appear"
+      },
+      {
+        "t": "33.0s–40.0s",
+        "voice": "A generator works on the principle of electromagnetic induction. A magnet rotates past a coil of wire, and this changing magnetic field induces an electric current in the wire. Motion creates electricity.",
+        "visual_cue": "scene 3 magnet rotates, sparks appear, waveform draws"
+      },
+      {
+        "t": "44.0s–50.0s",
+        "voice": "Before electricity travels far, it passes through a step-up transformer that dramatically increases the voltage.",
+        "visual_cue": "scene 4 split screen appears, transformer rotates"
+      },
+      {
+        "t": "50.0s–56.0s",
+        "voice": "Why? Because higher voltage helps electricity travel long distances through transmission lines with far less energy loss.",
+        "visual_cue": "scene 4 voltage counters tick up, arrows animate"
+      },
+      {
+        "t": "60.0s–68.0s",
+        "voice": "Higher voltage helps electricity travel long distances through transmission lines with much less energy loss.",
+        "visual_cue": "scene 5 towers assemble"
+      },
+      {
+        "t": "68.0s–75.0s",
+        "voice": "The current flows across tall steel towers strung with thick cables, crossing hundreds of kilometers of countryside.",
+        "visual_cue": "scene 5 energy spark travels, distance counter ticks"
+      },
+      {
+        "t": "79.0s–86.0s",
+        "voice": "After traveling across the grid, electricity reaches a substation near towns and cities.",
+        "visual_cue": "scene 6 substation yard fades in"
+      },
+      {
+        "t": "86.0s–91.0s",
+        "voice": "The substation lowers the voltage and prepares electricity for local neighborhoods using step-down transformers and switching equipment.",
+        "visual_cue": "scene 6 voltage drops, breakers click, lines fan out"
+      },
+      {
+        "t": "93.0s–100.0s",
+        "voice": "From the substation, smaller distribution lines carry electricity from the local grid to streets, shops, and homes.",
+        "visual_cue": "scene 7 tree-like branches grow"
+      },
+      {
+        "t": "100.0s–107.0s",
+        "voice": "Wooden poles hold up wires that branch out like a tree across the neighborhood, reaching every home and shop.",
+        "visual_cue": "scene 7 houses light up, sparks pulse"
+      },
+      {
+        "t": "109.0s–117.0s",
+        "voice": "Before electricity enters your house, a home transformer lowers the voltage one more time for safe use. What arrives on the street at thousands of volts becomes just 120 or 240 volts inside your walls.",
+        "visual_cue": "scene 8 voltage drops from 7,200 V to 120 V"
+      },
+      {
+        "t": "121.0s–130.0s",
+        "voice": "Finally, electricity enters your home through a service line, reaches the electrical panel, where circuit breakers split and protect individual circuits.",
+        "visual_cue": "scene 9 service drop enters, panel door opens, breakers flip ON"
+      },
+      {
+        "t": "130.0s–136.0s",
+        "voice": "It then sends power through wires to lights, fans, chargers, outlets, and appliances.",
+        "visual_cue": "scene 9 device icons pop in and glow"
+      },
+      {
+        "t": "136.0s–146.0s",
+        "voice": "Let's recap the full path. Generate electricity at the plant. Step up the voltage for long-distance travel. Transmit it across the high-voltage grid. Step it down at substations. Distribute it through local lines to your home. And finally, use it to power your life.",
+        "visual_cue": "scene 10 summary timeline with looping spark"
+      },
+      {
+        "t": "146.0s–152.0s",
+        "voice": "Electricity is invisible — but its journey is one of the most extraordinary feats of modern engineering.",
+        "visual_cue": "closing message fades in with glow underline"
+      },
+      {
+        "t": "152.0s–160.0s",
+        "voice": "Thanks for watching! If you enjoyed this animated journey, like, share, and subscribe to see more science explained with motion graphics.",
+        "visual_cue": "outro letters drop in, end card slides in"
+      }
+    ]
+  },
+  "extended_animation_library": {
+    "description": "Reusable animated elements that appear across multiple scenes. Each item includes the visual style and behavior.",
+    "items": [
+      {
+        "id": "energy_spark",
+        "description": "A bright electric-blue spark with motion blur and trailing glow that travels along a path.",
+        "behavior": "continuous loop along connected wires; flickers softly when stationary",
+        "used_in": [
+          "scene_01",
+          "scene_05",
+          "scene_10"
+        ]
+      },
+      {
+        "id": "voltage_counter",
+        "description": "Digital-style voltage display that ticks up from 0 to a target value with counter sound.",
+        "behavior": "scales in, ticks up at 100ms intervals, snaps to final value with a chime",
+        "used_in": [
+          "scene_04",
+          "scene_06",
+          "scene_08"
+        ]
+      },
+      {
+        "id": "node_pop_in",
+        "description": "A circular node that scales from 0.5 to 1.0 with elastic easing.",
+        "behavior": "appears with a soft pulse glow, then settles into a gentle floating breath",
+        "used_in": [
+          "scene_01",
+          "scene_07",
+          "scene_10"
+        ]
+      },
+      {
+        "id": "tower_assembly",
+        "description": "Steel transmission tower self-assembles piece by piece.",
+        "behavior": "base drops in with bounce, vertical columns extend upward, crossarms swing into place, insulators drop onto crossarms, wires connect with catenary sag",
+        "used_in": [
+          "scene_05"
+        ]
+      },
+      {
+        "id": "branch_grow",
+        "description": "Tree-like branch path that grows from origin to endpoint using a bezier curve.",
+        "behavior": "stroke-dashoffset animation reveals the path; energy spark follows after completion",
+        "used_in": [
+          "scene_07"
+        ]
+      },
+      {
+        "id": "device_glow",
+        "description": "An icon (light bulb, fan, charger, etc.) that pops in then glows warmly to indicate power.",
+        "behavior": "scale-in from 0 with elastic easing; glow filter applied; subtle bobbing motion",
+        "used_in": [
+          "scene_09"
+        ]
+      },
+      {
+        "id": "breaker_click",
+        "description": "A circuit breaker switch that flips from OFF to ON position.",
+        "behavior": "rotates 60 degrees with a quick down-up motion; satisfying click sound",
+        "used_in": [
+          "scene_06",
+          "scene_09"
+        ]
+      },
+      {
+        "id": "waveform_draw",
+        "description": "Animated sine wave that draws itself from left to right.",
+        "behavior": "stroke-dashoffset animation; pulses softly after completion",
+        "used_in": [
+          "scene_03"
+        ]
+      },
+      {
+        "id": "particle_field",
+        "description": "Always-on electric-blue particle background that drifts upward.",
+        "behavior": "low opacity, parallax depth; speed increases during high-energy moments",
+        "used_in": [
+          "all scenes"
+        ]
+      },
+      {
+        "id": "text_typewriter",
+        "description": "Text that reveals character-by-character (or word-by-word).",
+        "behavior": "monospace reveal at 50ms per character; final character has a subtle scale bounce",
+        "used_in": [
+          "intro",
+          "scene_10 tagline",
+          "outro"
+        ]
+      },
+      {
+        "id": "letter_drop_bounce",
+        "description": "Letters drop in from above with bounce easing.",
+        "behavior": "stagger of 0.05s per letter; easeOutBounce on landing",
+        "used_in": [
+          "intro title",
+          "outro main message"
+        ]
+      },
+      {
+        "id": "icon_elastic_pop",
+        "description": "An icon that scales from 0 to 1.0 with elastic ease.",
+        "behavior": "back easeOut with overshoot of 1.15x before settling",
+        "used_in": [
+          "scene_01 nodes",
+          "scene_07 houses",
+          "scene_09 devices"
+        ]
+      },
+      {
+        "id": "line_draw_stroke",
+        "description": "A connection line that draws from start to end using stroke-dashoffset.",
+        "behavior": "0.6s duration; energy spark follows shortly after; label fades in at midpoint",
+        "used_in": [
+          "scene_01 connections",
+          "scene_05 wires"
+        ]
+      }
+    ]
+  },
+  "extended_production_pack": {
+    "thumbnail_design": {
+      "background": "dark navy with bright electric arc across center",
+      "main_text": "FROM POWER PLANT TO PLUG",
+      "sub_text": "How Electricity Reaches Your Home",
+      "accent": "small glowing transformer and house icons on either side of arc",
+      "mood": "high contrast, neon, eye-catching"
+    },
+    "social_cuts": {
+      "youtube_short_30s": "condensed version focusing on the 5-step summary with energy spark loop",
+      "instagram_reel_60s": "split into 6 reels, one per scene, each with its own caption",
+      "tiktok_60s": "fast-cut version with on-screen text overlays for each step",
+      "linkedin_90s": "professional tone, slower pacing, focus on the engineering"
+    },
+    "color_grading_notes": {
+      "look": "neon-on-dark with high contrast",
+      "highlights": "warm oranges and electric yellows",
+      "shadows": "deep navy with faint blue undertone",
+      "midtone": "neutral with a slight teal push",
+      "saturation": "+15% on accent colors, -10% on muted text"
+    },
+    "music_brief": {
+      "genre": "ambient electronic with subtle orchestral elements",
+      "tempo_bpm": 90,
+      "mood": "calm, educational, slightly inspirational",
+      "key_signature": "C major",
+      "instruments": "soft synth pads, light piano, occasional plucked strings, low cinematic bass",
+      "reference_tracks": [
+        "ODESZA — A Moment Apart",
+        "Hans Zimmer — Time (slowed)",
+        "Tycho — Awake"
+      ]
+    },
+    "voice_brief": {
+      "preferred_talent": "calm, clear, mid-range, gender-neutral",
+      "alternate_ai_voice": "neural TTS with calm educational preset",
+      "recording_notes": "dry recording, minimal reverb, pop filter, consistent mic distance",
+      "delivery_notes": "pause 0.4s between sentences, slight upward inflection on key terms"
+    }
+  },
+  "closing_meta": {
+    "thank_you": "Thanks for using this animated course script!",
+    "reminder": "Every scene has full animation cues, every text element has an animation type, every transition is specified, and every diagram has visual data ready to render.",
+    "next_steps": [
+      "Import the JSON into your motion graphics software (After Effects, Motion, Cavalry, Blender, Rive, etc.).",
+      "Build the scene backgrounds first using the color_palette and style notes.",
+      "Animate the nodes, icons, and connections using the animation_cues blocks.",
+      "Add the text_animations for every label and bullet point.",
+      "Record or synthesize the voice over using the full_voiceover and the timecoded lines.",
+      "Mix in sound_effects and music according to the production notes.",
+      "Render in 1920x1080 at 30fps for the master, then cut 9:16 and 1:1 versions for social."
+    ],
+    "tags_reminder": [
+      "electricity",
+      "power plant",
+      "transformer",
+      "transmission",
+      "substation",
+      "electrical panel",
+      "animated course",
+      "motion graphics",
+      "science tutorial"
+    ]
+  }
+}

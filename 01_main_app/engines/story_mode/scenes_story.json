@@ -1,0 +1,111 @@
+{
+  "render_mode": "story",
+  "subject": "Cunning fox and honest rabbit",
+  "keywords": "story, kids, moral, animation, cunning, honesty, friendship, forest, animals, adventure, learning, values",
+  "moneyprinter_script": "Once upon a time in a lush green forest, there lived a sly fox named Flicker and a kind-hearted rabbit called Rosie. One sunny morning, Flicker found a large basket of juicy carrots left by the riverbank. He thought about taking them but remembered his friend Rosie's wise words.",
+  "scenes": [
+    {
+      "name": "scene_01_beginning",
+      "title": "The Magical Beginning",
+      "prompt": "Vertical 9:16 children's storybook illustration of a sunny forest, Flicker the fox and Rosie the rabbit playing together in a meadow, no text, no watermark",
+      "bullets": [
+        "Key point: The Magical Beginning"
+      ],
+      "visual_data": {
+        "steps": [
+          "Input",
+          "The Magical Beginning",
+          "Process",
+          "Output"
+        ],
+        "caption": "The Magical Beginning"
+      }
+    },
+    {
+      "name": "scene_02_problem_rising_action",
+      "title": "Flicker Finds the Basket",
+      "prompt": "Vertical 9:16 children's storybook illustration of Flicker the fox discovering a large basket of carrots by the riverbank, no text, no watermark",
+      "bullets": [
+        "Key point: Flicker Finds the Basket"
+      ],
+      "visual_data": {
+        "steps": [
+          "Input",
+          "Flicker Finds the Basket",
+          "Process",
+          "Output"
+        ],
+        "caption": "Flicker Finds the Basket"
+      }
+    },
+    {
+      "name": "scene_03_choice_turning_point",
+      "title": "Flicker’s Dilemma",
+      "prompt": "Vertical 9:16 children's storybook illustration of Flicker the fox contemplating between taking the carrots or leaving them, Rosie the rabbit watching from a distance, no text, no watermark",
+      "bullets": [
+        "Key point: Flicker’s Dilemma"
+      ],
+      "visual_data": {
+        "steps": [
+          "Input",
+          "Flicker’s Dilemma",
+          "Process",
+          "Output"
+        ],
+        "caption": "Flicker’s Dilemma"
+      }
+    },
+    {
+      "name": "scene_04_resolution",
+      "title": "Flicker’s Choice",
+      "prompt": "Vertical 9:16 children's storybook illustration of Flicker the fox returning the carrots to Rosie and the riverbank, both animals smiling and sharing a carrot, no text, no watermark",
+      "bullets": [
+        "Key point: Flicker’s Choice"
+      ],
+      "visual_data": {
+        "steps": [
+          "Input",
+          "Flicker’s Choice",
+          "Process",
+          "Output"
+        ],
+        "caption": "Flicker’s Choice"
+      }
+    },
+    {
+      "name": "scene_05_happy_ending",
+      "title": "A Friendship Built on Trust",
+      "prompt": "Vertical 9:16 children's storybook illustration of Flicker the fox and Rosie the rabbit happily sharing a meal in their cozy burrow, no text, no watermark",
+      "bullets": [
+        "Key point: A Friendship Built on Trust"
+      ],
+      "visual_data": {
+        "steps": [
+          "Input",
+          "A Friendship Built on Trust",
+          "Process",
+          "Output"
+        ],
+        "caption": "A Friendship Built on Trust"
+      }
+    },
+    {
+      "name": "scene_06_moral_summary",
+      "title": "The Value of Honesty",
+      "prompt": "Vertical 9:16 children's storybook illustration of Flicker the fox and Rosie the rabbit sitting together with a book about honesty, no text, no watermark",
+      "bullets": [
+        "Key point: The Value of Honesty"
+      ],
+      "visual_data": {
+        "steps": [
+          "Input",
+          "The Value of Honesty",
+          "Process",
+          "Output"
+        ],
+        "caption": "The Value of Honesty"
+      }
+    }
+  ],
+  "visual_style": "manim_course"
+}

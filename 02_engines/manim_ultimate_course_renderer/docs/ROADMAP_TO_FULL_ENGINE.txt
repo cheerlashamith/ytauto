@@ -1,0 +1,35 @@
+ROADMAP TO FULL ENGINE
+======================
+
+Phase 1: Foundation
+- Current kit
+- JSON-driven rendering
+- reusable primitives
+- basic renderers
+
+Phase 2: Advanced Motion Graphics
+- true electric particles
+- voltage counters
+- typewriter bounce text
+- apple hello-style title text
+- camera paths
+- scene transitions
+
+Phase 3: More Diagram Types
+- linked list
+- tree
+- graph
+- recursion call stack
+- neural network
+- OS scheduling timeline
+- TCP handshake
+- Bayes/probability bars
+
+Phase 4: AI JSON Generator
+- LLM creates scenes_course.json
+- user reviews/edits
+- renderer generates clips
+
+Phase 5: Native MoneyPrinterTurbo Integration
+- Video Source = Manim Course Mode
+- automatic internal rendering

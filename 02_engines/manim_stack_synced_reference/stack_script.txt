@@ -1,0 +1,13 @@
+A stack is a data structure that stores items in a vertical order.
+
+The main rule of a stack is last in, first out.
+
+Adding an item to a stack is called push.
+
+Removing the top item from a stack is called pop.
+
+Looking at the top item without removing it is called peek.
+
+Stacks are used in undo operations, browser history, function calls, and recursion.
+
+In summary, a stack follows last in, first out behavior. Push adds to the top, pop removes from the top, and peek reads the top without removing it.

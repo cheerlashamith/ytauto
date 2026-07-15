@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  autocourse-ollama:
+    image: ollama/ollama:latest
+    container_name: autocourse-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: always
+
+  autocourse-comfyui:
+    image: yanwk/comfyui-boot:latest
+    container_name: autocourse-comfyui
+    ports:
+      - "8188:8188"
+    volumes:
+      # Map the Windows ComfyUI models folder to the container's checkpoints folder
+      - ./comfyui_models:/home/runner/ComfyUI/models/checkpoints
+      - ./01_main_app/outputs:/outputs
+    environment:
+      - CLI_ARGS=--listen 0.0.0.0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: always
+
+  autocourse-backend:
+    build: 
+      context: ./01_main_app
+      dockerfile: Dockerfile
+    container_name: autocourse-backend
+    ports:
+      - "8765:8765"
+    volumes:
+      - ./01_main_app:/app
+    environment:
+      - OLLAMA_URL=http://autocourse-ollama:11434
+      - COMFYUI_URL=http://autocourse-comfyui:8188
+    depends_on:
+      - autocourse-ollama
+      - autocourse-comfyui
+    restart: always
+
+volumes:
+  ollama_data:

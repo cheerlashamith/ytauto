@@ -1,0 +1,77 @@
+JSON SPEC GUIDE
+===============
+
+Minimum scene:
+
+{
+  "name": "scene_01_intro",
+  "title": "Intro",
+  "diagram_type": "flowchart",
+  "bullets": ["Point 1", "Point 2", "Point 3"],
+  "visual_data": {
+    "nodes": ["A", "B", "C"]
+  }
+}
+
+Supported diagram_type:
+
+1. title_card
+2. flowchart
+3. process
+4. timeline
+5. comparison
+6. network
+7. equation
+8. array
+9. cycle
+10. electric_grid
+11. generic
+
+Flowchart visual_data:
+{
+  "nodes": ["Power Plant", "Transformer", "Home"]
+}
+
+Process visual_data:
+{
+  "steps": ["Input", "Process", "Output"]
+}
+
+Timeline visual_data:
+{
+  "steps": ["Step 1", "Step 2", "Step 3"]
+}
+
+Comparison visual_data:
+{
+  "left_title": "Before",
+  "left_items": ["Low voltage"],
+  "right_title": "After",
+  "right_items": ["High voltage"]
+}
+
+Network visual_data:
+{
+  "center": "Local Grid",
+  "nodes": ["House A", "House B", "Shop"]
+}
+
+Equation visual_data:
+{
+  "equation": "P(A|B) = P(B|A) × P(A) / P(B)"
+}
+
+Electric grid visual_data:
+{
+  "nodes": ["Power Plant", "Step Up", "Transmission", "Substation", "Home"],
+  "spark": true
+}
+
+Animation cues are allowed:
+{
+  "animation_cues": {
+    "text": "nodes appear one by one with electric sparks"
+  }
+}
+
+The renderer will not implement every cue literally yet, but it will safely accept them.

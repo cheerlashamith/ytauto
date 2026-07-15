@@ -1,0 +1,52 @@
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-table th, .history-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.history-table th {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.history-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.history-table tbody tr:hover td {
+  background-color: rgba(67, 97, 238, 0.02);
+}
+
+.job-id {
+  font-family: monospace;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.job-title {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.mode-badge {
+  background-color: var(--border-color);
+  color: var(--text-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.duration-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

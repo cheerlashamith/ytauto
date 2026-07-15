@@ -1,0 +1,483 @@
+================================================================================
+    AUTOCOURSE STUDIO - THE COMPLETE MASTER GUIDE
+    FULLY AUTOMATIC VERSION
+================================================================================
+    Created: July 2026
+    System: AutoCourse Studio Ultimate (v2.0 Fully Automatic)
+    University: JNTUK R23 - Data Structures (B.Tech CSE/IT)
+    Author: AutoCourse Development Team
+================================================================================
+
+TABLE OF CONTENTS
+=================
+    PART  1:  WHAT IS AUTOCOURSE STUDIO?
+    PART  2:  COMPLETE FOLDER STRUCTURE
+    PART  3:  WHAT YOU NEED INSTALLED
+    PART  4:  WHICH OLLAMA MODEL TO USE
+    PART  5:  THE FOUR GENERATION MODES
+    PART  6:  HOW THE AI AGENT ANALYZES TOPICS AND SUBTOPICS
+    PART  7:  FULLY AUTOMATIC WORKFLOW
+    PART  8:  HOW MONEYPRINTERTURBO IS USED AUTOMATICALLY
+    PART  9:  HOW MANIM RENDERER IS USED AUTOMATICALLY
+    PART 10:  HOW COMFYUI STORY RENDERER IS USED AUTOMATICALLY
+    PART 11:  HOW YOUTUBE EXTRACTION WORKS
+    PART 12:  STEP-BY-STEP: GENERATE ONE TOPIC VIDEO
+    PART 13:  STEP-BY-STEP: GENERATE ALL TOPICS AT ONCE
+    PART 14:  WHAT FILES ARE GENERATED AND WHERE
+    PART 15:  WHAT TO REMOVE / WHAT TO KEEP
+    PART 16:  TROUBLESHOOTING COMMON ERRORS
+    PART 17:  THE COMPLETE PIPELINE DIAGRAM
+    PART 18:  WHAT TO TELL YOUR SIR / PROFESSOR
+    PART 19:  API KEYS AND CONFIGURATION
+
+================================================================================
+PART 1: WHAT IS AUTOCOURSE STUDIO?
+================================================================================
+AutoCourse Studio is a FULLY AUTOMATIC AI-powered educational video generator.
+
+You give it a topic, a story idea, a YouTube URL, or nothing at all, and it:
+    1. Uses a local AI model (Ollama) to understand the topic.
+    2. Looks up the JNTUK R23 syllabus to find ALL matching subtopics.
+    3. Generates a full video script covering every subtopic.
+    4. Creates scene plans and renders clips (Manim, ComfyUI, or Pexels).
+    5. Calls MoneyPrinterTurbo API automatically to assemble the final MP4.
+    6. Returns a download link to the user.
+
+The user sees ONLY:
+    - A progress indicator (Planning -> Rendering -> Assembling -> Done)
+    - A "Download MP4" button when finished
+
+The user does NOT need to:
+    - Copy JSON files
+    - Run Manim manually
+    - Run ComfyUI manually
+    - Open MoneyPrinterTurbo
+    - Paste scripts or keywords
+    - Upload clips
+
+================================================================================
+PART 2: COMPLETE FOLDER STRUCTURE
+================================================================================
+C:\DOWNLOAD_ME_AutoCourse_Final_Master\
+│
+├── README_START_HERE.txt              <- Quick setup overview
+├── AUTOCOURSE_MASTER_GUIDE.txt        <- THIS FILE
+│
+├── 01_main_app\                       <- THE MAIN APPLICATION
+│   ├── install.bat                    <- Install all dependencies
+│   ├── run.bat                        <- Start the web server
+│   ├── config.json                    <- Your configuration (copy from config.example.json)
+│   ├── config.example.json            <- Default configuration template
+│   │
+│   ├── backend\                       <- FastAPI Python backend
+│   │   ├── main.py                    <- API routes and static files
+│   │   ├── requirements.txt           <- Python packages
+│   │   ├── core\                      <- Config, schemas, job store
+│   │   │   ├── config.py
+│   │   │   ├── schemas.py
+│   │   │   └── job_store.py
+│   │   └── services\                  <- AI brain + orchestration
+│   │       ├── planner.py             <- Ollama + syllabus + prompts
+│   │       ├── pipeline.py            <- Full end-to-end orchestration
+│   │       ├── renderer.py            <- Auto-run Manim, ComfyUI, Pexels
+│   │       ├── mpt_bridge.py          <- MoneyPrinterTurbo API integration
+│   │       └── youtube.py             <- YouTube transcript extraction
+│   │
+│   ├── frontend\                      <- Web UI
+│   │   ├── index.html
+│   │   ├── styles.css
+│   │   └── app.js
+│   │
+│   ├── data\                          <- JNTUK R23 DSA syllabus
+│   │   └── jntuk_r23_data_structures_syllabus.json
+│   │
+│   ├── engines\                        <- Rendering engines (auto-run by backend)
+│   │   ├── manim_course_mode\         <- Manim renderer
+│   │   └── story_mode\                <- ComfyUI story renderer
+│   │
+│   └── outputs\                       <- ALL GENERATED OUTPUTS
+│       └── <job_id>\                  <- One folder per job
+│           ├── job.json
+│           ├── scenes_course.json / scenes_story.json
+│           ├── moneyprinter_video_script.txt
+│           ├── moneyprinter_keywords.txt
+│           └── final-1.mp4            <- FINAL VIDEO
+│
+├── 02_engines\                        <- Standalone engine copies
+├── 03_docs\                           <- Documentation
+├── 04_syllabus\                       <- Syllabus knowledge base
+└── 05_demo_ui\                        <- Static demo site
+
+================================================================================
+PART 3: WHAT YOU NEED INSTALLED
+================================================================================
+REQUIRED:
+    1. Python 3.10 or higher
+       Check: python --version
+
+    2. Ollama (local AI model runner)
+       Download: https://ollama.com/download
+       Pull a model: ollama pull qwen2.5:7b
+       Run: ollama serve
+
+    3. MoneyPrinterTurbo portable
+       Default path: C:\MoneyPrinterTurbo-Portable-Windows-1.3.0\MoneyPrinterTurbo
+       Configure config.toml with Pexels API key.
+
+    4. FFmpeg (must be in PATH)
+       Check: ffmpeg -version
+
+    5. Manim (for course mode)
+       Install: pip install manim
+
+OPTIONAL (for story mode):
+    6. ComfyUI -> http://127.0.0.1:8188
+
+PYTHON PACKAGES (auto-installed by install.bat):
+    fastapi, uvicorn, pydantic, python-multipart, requests
+    edge-tts, yt-dlp, opencv-python
+
+================================================================================
+PART 4: WHICH OLLAMA MODEL TO USE
+================================================================================
+DEFAULT MODEL: qwen2.5:7b
+    - Runs on ~6GB RAM
+    - Produces clean JSON reliably
+    - Understands technical DSA topics
+
+ALTERNATIVES:
+    qwen2.5:14b    -> Better quality, needs 12GB+ RAM
+    qwen3:14b      -> Newer, excellent quality
+    deepseek-r1:14b -> Has <think> tags (we strip them), slower
+    llama3.1:8b    -> Fast alternative
+
+HOW TO CHANGE MODEL:
+    Edit 01_main_app\config.json and change "ollama_model".
+    Restart the server.
+
+================================================================================
+PART 5: THE FOUR GENERATION MODES
+================================================================================
+MODE 1: MANUAL COURSE MODE
+    - You type a DSA topic (or leave empty for batch mode).
+    - AI finds all subtopics from the syllabus.
+    - Generates Manim scene JSON and a full script.
+    - Backend automatically renders Manim clips.
+    - Backend automatically calls MoneyPrinterTurbo to assemble the final MP4.
+    - Output: final-1.mp4 ready to download.
+    - Leave topic EMPTY to generate all 19 syllabus topics at once.
+
+MODE 2: STORY MODE
+    - You type a story topic.
+    - AI generates a 4-6 scene story with prompts and narration.
+    - Backend automatically sends prompts to ComfyUI.
+    - ComfyUI generates images and ffmpeg converts them to clips.
+    - Backend automatically calls MoneyPrinterTurbo to assemble the final MP4.
+    - Output: final-1.mp4 ready to download.
+
+MODE 3: YOUTUBE EXTRACTION MODE
+    - You paste a YouTube URL.
+    - Backend extracts the transcript using yt-dlp.
+    - AI rewrites the transcript into a clean educational script.
+    - Backend automatically calls MoneyPrinterTurbo with Pexels source.
+    - MPT downloads stock clips and assembles the final MP4.
+    - Output: final-1.mp4 ready to download.
+
+MODE 4: AUTONOMOUS MODE
+    - You leave the topic empty (or type one).
+    - AI picks a random syllabus topic (or uses your topic).
+    - AI writes a script and keywords.
+    - Backend automatically calls MoneyPrinterTurbo with Pexels source.
+    - MPT downloads stock clips and assembles the final MP4.
+    - Output: final-1.mp4 ready to download.
+
+================================================================================
+PART 6: HOW THE AI AGENT ANALYZES TOPICS
+================================================================================
+The system reads 04_syllabus\jntuk_r23_data_structures_syllabus.json.
+It contains 5 Units, 19 Topics, and many Subtopics.
+
+When you type a topic:
+    1. It normalizes the text.
+    2. It scans every syllabus topic.
+    3. It uses fuzzy matching to find the best topic.
+    4. It extracts ALL subtopics for that topic.
+    5. It sends a strict command to Ollama:
+       "Create one dedicated scene for EACH subtopic: ..."
+    6. The AI returns a JSON plan with scenes, script, and keywords.
+
+If the topic is not in the syllabus, the AI still generates a plan using its own knowledge.
+If the topic is EMPTY, the system loops through ALL 19 topics and creates a separate plan for each.
+
+================================================================================
+PART 7: FULLY AUTOMATIC WORKFLOW
+================================================================================
+1. User opens browser: http://127.0.0.1:8765
+2. User selects a mode and clicks "Create Video".
+3. Backend creates a job and starts a background thread.
+4. Backend calls Ollama to generate the plan/script.
+5. Backend updates status to "planning".
+6. Backend renders clips (Manim / ComfyUI / Pexels via MPT).
+7. Backend updates status to "rendering".
+8. Backend calls MoneyPrinterTurbo API to assemble final video.
+9. Backend updates status to "assembling".
+10. Backend downloads final-1.mp4 into the job folder.
+11. Backend updates status to "completed".
+12. Frontend shows "Download MP4" button.
+
+User action required: ZERO manual steps.
+
+================================================================================
+PART 8: HOW MONEYPRINTERTURBO IS USED AUTOMATICALLY
+================================================================================
+The backend uses MoneyPrinterTurbo's REST API:
+    POST http://127.0.0.1:8080/api/v1/video/generate
+    GET  http://127.0.0.1:8080/api/v1/video/status/{task_id}
+
+If the MPT API server is not running, the backend starts it automatically:
+    python main.py
+inside the MoneyPrinterTurbo folder.
+
+For local clips (Manim / ComfyUI), the backend sends:
+    - video_source: "local"
+    - video_materials: list of local MP4 paths
+    - video_script: the generated script
+    - video_terms: keywords
+    - video_aspect: 16:9 or 9:16
+    - voice_name: TTS voice
+    - subtitle_enabled: true/false
+    - bgm_volume: 0.0 to 1.0
+
+For Pexels clips (Autonomous / YouTube), the backend sends:
+    - video_source: "pexels"
+    - video_terms: keywords
+    - video_script: the generated script
+    - MPT uses its own Pexels API key from config.toml
+
+MPT generates the final video, and the backend downloads it to the job folder.
+
+================================================================================
+PART 9: HOW MANIM RENDERER IS USED AUTOMATICALLY
+================================================================================
+The backend:
+    1. Writes scenes_course.json to engines\manim_course_mode\scenes_course.json
+    2. Runs: python render_all.py
+    3. Reads the generated clips from engines\manim_course_mode\generated\clips\
+    4. Sends the clips to MoneyPrinterTurbo as local materials
+
+User does NOT need to:
+    - Copy JSON files
+    - Run render_all.bat manually
+    - Open Manim folder
+
+================================================================================
+PART 10: HOW COMFYUI STORY RENDERER IS USED AUTOMATICALLY
+================================================================================
+The backend:
+    1. Writes scenes_story.json to engines\story_mode\scenes_story.json
+    2. Runs: python generate_story_materials.py --scenes scenes_story.json
+    3. Reads the generated clips from engines\story_mode\generated\clips\
+    4. Sends the clips to MoneyPrinterTurbo as local materials
+
+Prerequisite: ComfyUI must be running on http://127.0.0.1:8188
+Workflow file must be at:
+    engines\story_mode\workflows\sd3.5_simple_example_api.json
+
+================================================================================
+PART 11: HOW YOUTUBE EXTRACTION WORKS
+================================================================================
+The backend:
+    1. Uses yt-dlp to fetch the YouTube video metadata.
+    2. Uses yt-dlp to download English subtitles (manual or auto-generated).
+    3. Sends the transcript to Ollama with a rewrite prompt.
+    4. Ollama returns a clean educational script and keywords.
+    5. Backend calls MoneyPrinterTurbo with video_source: "pexels".
+    6. MPT downloads stock clips and assembles the final MP4.
+
+Requires yt-dlp installed (included in install.bat).
+
+================================================================================
+PART 12: STEP-BY-STEP: GENERATE ONE TOPIC VIDEO
+================================================================================
+Example: Bubble Sort
+1. ollama serve
+2. cd /d C:\...\01_main_app && run.bat
+3. Open http://127.0.0.1:8765
+4. Select Manual Course Mode
+5. Type "Bubble Sort"
+6. Click "Create Video"
+7. Wait for status to show "completed"
+8. Click "Download MP4"
+
+================================================================================
+PART 13: STEP-BY-STEP: GENERATE ALL TOPICS AT ONCE
+================================================================================
+1. Start Ollama and AutoCourse backend
+2. Open http://127.0.0.1:8765
+3. Select Manual Course Mode
+4. LEAVE THE TOPIC BOX EMPTY
+5. Click "Create Video"
+6. The backend loops through all 19 syllabus topics
+7. Wait (this takes 30-90 minutes depending on PC speed)
+8. Each topic gets its own folder with final-1.mp4
+
+RESULT: 19 complete educational videos covering the entire syllabus!
+
+================================================================================
+PART 14: WHAT FILES ARE GENERATED AND WHERE
+================================================================================
+SINGLE TOPIC:
+    outputs\<job_id>\
+        job.json
+        scenes_course.json  (or scenes_story.json / scenes_pexels.json)
+        moneyprinter_video_script.txt
+        moneyprinter_keywords.txt
+        final-1.mp4          <- FINAL VIDEO
+
+BATCH MODE:
+    outputs\<job_id>\
+        job.json
+        topic_01_<name>\   <- final-1.mp4, script, keywords, JSON
+        topic_02_<name>\
+        ...
+        topic_19_<name>\
+
+================================================================================
+PART 15: WHAT TO REMOVE / WHAT TO KEEP
+================================================================================
+KEEP (essential):
+    01_main_app\
+    04_syllabus\
+    AUTOCOURSE_MASTER_GUIDE.txt
+
+KEEP (useful reference):
+    02_engines\
+    03_docs\
+
+SAFE TO REMOVE:
+    05_demo_ui\
+    01_main_app\outputs\*   (old generated outputs)
+    01_main_app\engines\manim_course_mode\media\
+    01_main_app\backend\__pycache__\
+
+DO NOT REMOVE:
+    01_main_app\engines\story_mode\workflows\sd3.5_simple_example_api.json
+    04_syllabus\jntuk_r23_data_structures_syllabus.json
+    01_main_app\backend\services\planner.py
+
+================================================================================
+PART 16: TROUBLESHOOTING COMMON ERRORS
+================================================================================
+ERROR: "Ollama is not running at http://127.0.0.1:11434"
+    FIX: Open CMD and run: ollama serve
+
+ERROR: "Ollama returned an error: ... model not found"
+    FIX: Run: ollama pull qwen2.5:7b
+
+ERROR: "Failed to extract JSON from Ollama"
+    FIX: Try qwen2.5:7b. Check Ollama logs.
+
+ERROR: "MoneyPrinterTurbo root not found"
+    FIX: Edit config.json and set paths.moneyprinter_root to the correct MPT folder.
+
+ERROR: "MoneyPrinterTurbo API server did not start"
+    FIX: Make sure MPT is installed correctly. Try running manually:
+         cd /d C:\MoneyPrinterTurbo-Portable-Windows-1.3.0\MoneyPrinterTurbo
+         python main.py
+         Then open http://127.0.0.1:8080/docs
+
+ERROR: "Pexels API key missing" (from MPT)
+    FIX: Edit MPT config.toml and add your Pexels API key under [app].
+
+ERROR: "ComfyUI connection refused"
+    FIX: Start ComfyUI on http://127.0.0.1:8188 and check the workflow JSON path.
+
+ERROR: "ffmpeg not found"
+    FIX: Install ffmpeg and add it to PATH.
+
+ERROR: "No subtitles available for this YouTube video"
+    FIX: Use a video with captions, or install whisper/faster-whisper for audio transcription.
+
+================================================================================
+PART 17: THE COMPLETE PIPELINE DIAGRAM
+================================================================================
+    USER
+      │
+      ▼
+    Frontend (http://127.0.0.1:8765)
+      │
+      ▼
+    FastAPI Backend
+      │
+      ├─► planner.py -> Ollama + syllabus
+      │
+      ├─► renderer.py -> Manim / ComfyUI / Pexels
+      │
+      └─► mpt_bridge.py -> MoneyPrinterTurbo API
+                  │
+                  ▼
+            final-1.mp4
+                  │
+                  ▼
+    Frontend Download Button
+
+================================================================================
+PART 18: WHAT TO TELL YOUR SIR / PROFESSOR
+================================================================================
+"Sir, I have built a fully automatic AI-powered educational video generation system
+called AutoCourse Studio.
+
+The system has four modes:
+    1. Manual Course Mode - generates syllabus-aware Manim-animated DSA videos
+    2. Story Mode - generates children's story videos with AI illustrations
+    3. YouTube Extraction Mode - extracts transcripts and converts them to videos
+    4. Autonomous Mode - AI picks topics and generates videos automatically
+
+Architecture:
+    Frontend -> FastAPI Backend -> Ollama AI -> Renderer -> MoneyPrinterTurbo API -> MP4
+
+Key features:
+    - Full JNTUK R23 Data Structures syllabus stored as a knowledge base
+    - AI finds all subtopics and creates a dedicated scene for each one
+    - Backend automatically controls Manim, ComfyUI, and MoneyPrinterTurbo
+    - No manual importing, copying, or pasting required
+    - User only sees progress and a download button
+    - Generates all 19 syllabus topics in one click
+    - Every script ends with a 'Next topic is ...' continuation hook
+    - AI runs locally using Ollama
+
+Everything is local, private, and free to run (except Pexels API key for stock clips)."
+
+================================================================================
+PART 19: API KEYS AND CONFIGURATION
+================================================================================
+AutoCourse config.json (in 01_main_app):
+    {
+      "paths": {
+        "moneyprinter_root": "C:/MoneyPrinterTurbo-Portable-Windows-1.3.0/MoneyPrinterTurbo",
+        "moneyprinter_api_url": "http://127.0.0.1:8080",
+        "comfyui_url": "http://127.0.0.1:8188",
+        "ollama_url": "http://127.0.0.1:11434"
+      },
+      "providers": {
+        "ollama_model": "qwen2.5:7b"
+      },
+      "rendering": {
+        "course_aspect": "16:9",
+        "story_aspect": "9:16",
+        "course_voice": "en-US-AndrewMultilingualNeural",
+        "story_voice": "en-US-JennyNeural",
+        "subtitle_enabled": true,
+        "bgm_volume": 0.05
+      }
+    }
+
+MoneyPrinterTurbo config.toml (in MPT folder):
+    [app]
+    pexels_api_keys = ["your-pexels-api-key-here"]
+
+Pexels API key: Get free key at https://www.pexels.com/api/
+
+================================================================================
+END OF MASTER GUIDE
+================================================================================

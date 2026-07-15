@@ -1,0 +1,205 @@
+{
+  "university": "JNTUK",
+  "regulation": "R23",
+  "program": "B.Tech",
+  "subject": "Data Structures",
+  "branches": ["CSE", "IT", "Allied Branches"],
+  "credits": {"L": 3, "T": 0, "P": 0, "C": 3},
+  "course_objectives": [
+    "To provide the knowledge of basic data structures and their implementations.",
+    "To understand importance of data structures in context of writing efficient programs.",
+    "To develop skills to apply appropriate data structures in problem solving."
+  ],
+  "course_outcomes": [
+    {"id": "CO1", "description": "Explain the role of linear data structures in organizing and accessing data efficiently in algorithms."},
+    {"id": "CO2", "description": "Design, implement, and apply linked lists for dynamic data storage, demonstrating understanding of memory allocation."},
+    {"id": "CO3", "description": "Develop programs using stacks to handle recursive algorithms, manage program states, and solve related problems."},
+    {"id": "CO4", "description": "Apply queue-based algorithms for efficient task scheduling and breadth-first traversal in graphs and distinguish between deques and priority queues, and apply them appropriately to solve data management challenges."},
+    {"id": "CO5", "description": "Devise novel solutions to small scale programming challenges involving data structures such as stacks, queues, Trees."},
+    {"id": "CO6", "description": "Recognize scenarios where hashing is advantageous, and design hash-based solutions for specific problems."}
+  ],
+  "units": [
+    {
+      "unit": "UNIT I",
+      "title": "Introduction to Linear Data Structures, Searching and Sorting",
+      "outcomes": ["CO1"],
+      "topics": [
+        {
+          "topic": "Introduction to Linear Data Structures",
+          "subtopics": [
+            "Definition and importance of linear data structures",
+            "Abstract Data Types and their implementation",
+            "Time complexity analysis",
+            "Space complexity analysis",
+            "Role of data structures in efficient programs"
+          ],
+          "recommended_visuals": ["concept map", "flowchart", "comparison table", "timeline"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Searching Techniques",
+          "subtopics": ["Linear Search", "Binary Search", "Comparison of Linear and Binary Search"],
+          "recommended_visuals": ["array animation", "highlighted search pointer", "low-mid-high markers"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Sorting Techniques",
+          "subtopics": ["Bubble Sort", "Selection Sort", "Insertion Sort"],
+          "recommended_visuals": ["array bars", "swap animation", "comparison arrows", "sorted region highlight"],
+          "course_mode_renderer": "manim_course"
+        }
+      ]
+    },
+    {
+      "unit": "UNIT II",
+      "title": "Linked Lists",
+      "outcomes": ["CO2"],
+      "topics": [
+        {
+          "topic": "Singly Linked Lists",
+          "subtopics": ["Representation", "Node structure", "Insertion", "Deletion", "Traversal", "Searching"],
+          "recommended_visuals": ["node chain", "head pointer", "next pointer", "insert/delete pointer rewiring"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Doubly Linked Lists",
+          "subtopics": ["Representation", "Previous pointer", "Next pointer", "Insertion", "Deletion", "Traversal both directions"],
+          "recommended_visuals": ["two-way arrows", "prev-next node layout", "bidirectional traversal"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Circular Linked Lists",
+          "subtopics": ["Circular representation", "Last node points to first", "Insertion", "Deletion", "Traversal stop condition"],
+          "recommended_visuals": ["circular node chain", "loop arrow", "head marker"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Arrays vs Linked Lists",
+          "subtopics": ["Memory allocation", "Insertion cost", "Deletion cost", "Random access", "Dynamic storage"],
+          "recommended_visuals": ["side-by-side comparison", "array blocks vs linked nodes", "memory diagram"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Applications of Linked Lists",
+          "subtopics": ["Dynamic memory", "Polynomial representation", "Undo systems", "Music playlist", "Hash chaining"],
+          "recommended_visuals": ["application map", "network diagram"],
+          "course_mode_renderer": "manim_course"
+        }
+      ]
+    },
+    {
+      "unit": "UNIT III",
+      "title": "Stacks",
+      "outcomes": ["CO3", "CO5"],
+      "topics": [
+        {
+          "topic": "Introduction to Stacks",
+          "subtopics": ["Stack definition", "LIFO principle", "Top pointer", "Push", "Pop", "Peek"],
+          "recommended_visuals": ["vertical stack", "top arrow", "push/pop animation"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Stack Implementation",
+          "subtopics": ["Stack using arrays", "Stack using linked lists", "Overflow", "Underflow"],
+          "recommended_visuals": ["array stack", "linked stack", "overflow limit", "underflow empty state"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Stack Applications",
+          "subtopics": ["Expression evaluation", "Infix to postfix", "Postfix evaluation", "Balanced parentheses", "Backtracking", "Reversing list", "Recursion call stack"],
+          "recommended_visuals": ["expression tokens", "operator stack", "call stack frames", "balanced bracket matching"],
+          "course_mode_renderer": "manim_course"
+        }
+      ],
+      "lab_exercises": [
+        "Implement a stack using arrays and linked lists.",
+        "Write a program to evaluate a postfix expression using a stack.",
+        "Implement a program to check for balanced parentheses using a stack."
+      ]
+    },
+    {
+      "unit": "UNIT IV",
+      "title": "Queues and Deques",
+      "outcomes": ["CO4", "CO5"],
+      "topics": [
+        {
+          "topic": "Introduction to Queues",
+          "subtopics": ["Queue definition", "FIFO principle", "Front", "Rear", "Enqueue", "Dequeue", "Peek"],
+          "recommended_visuals": ["horizontal queue", "front/rear arrows", "enqueue/dequeue animation"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Queue Implementation",
+          "subtopics": ["Queue using arrays", "Queue using linked lists", "Overflow", "Underflow"],
+          "recommended_visuals": ["array queue", "linked queue", "front/rear movement"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Circular Queues",
+          "subtopics": ["Circular array", "Wrap-around", "Full condition", "Empty condition", "Modulo arithmetic"],
+          "recommended_visuals": ["circular buffer", "front/rear wrap-around", "modulo pointer movement"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Queue Applications",
+          "subtopics": ["Printer queue", "CPU scheduling", "Breadth-first search", "Task scheduling"],
+          "recommended_visuals": ["timeline", "process queue", "BFS level traversal"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Deques",
+          "subtopics": ["Double-ended queue", "Insert front", "Insert rear", "Delete front", "Delete rear", "Applications"],
+          "recommended_visuals": ["two-ended queue", "double arrows"],
+          "course_mode_renderer": "manim_course"
+        }
+      ],
+      "lab_exercises": [
+        "Implement a queue using arrays and linked lists.",
+        "Develop a program to simulate a simple printer queue system.",
+        "Solve problems involving circular queues."
+      ]
+    },
+    {
+      "unit": "UNIT V",
+      "title": "Trees and Hashing",
+      "outcomes": ["CO5", "CO6"],
+      "topics": [
+        {
+          "topic": "Introduction to Trees",
+          "subtopics": ["Tree terminology", "Root", "Parent", "Child", "Leaf", "Height", "Depth", "Degree"],
+          "recommended_visuals": ["tree diagram", "level labels", "node highlighting"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Binary Search Tree",
+          "subtopics": ["BST property", "Insertion", "Deletion", "Search", "Inorder traversal", "Preorder traversal", "Postorder traversal"],
+          "recommended_visuals": ["BST insertion path", "node comparison", "traversal animation"],
+          "course_mode_renderer": "manim_course"
+        },
+        {
+          "topic": "Hashing",
+          "subtopics": ["Hash function", "Hash table", "Collision", "Linear probing", "Chaining", "Simple cache using hashing"],
+          "recommended_visuals": ["hash table buckets", "collision arrows", "chain linked list", "probing sequence"],
+          "course_mode_renderer": "manim_course"
+        }
+      ],
+      "lab_exercises": [
+        "Implementing a BST using Linked List.",
+        "Traversing of BST.",
+        "Implement a hash table with collision resolution techniques.",
+        "Write a program to implement a simple cache using hashing."
+      ]
+    }
+  ],
+  "textbooks": [
+    "Data Structures and algorithm analysis in C, Mark Allen Weiss, Pearson, 2nd Edition.",
+    "Fundamentals of data structures in C, Ellis Horowitz, Sartaj Sahni, Susan Anderson-Freed, Silicon Press, 2008"
+  ],
+  "reference_books": [
+    "Algorithms and Data Structures: The Basic Toolbox by Kurt Mehlhorn and Peter Sanders",
+    "C Data Structures and Algorithms by Alfred V. Aho, Jeffrey D. Ullman, and John E. Hopcroft",
+    "Problem Solving with Algorithms and Data Structures by Brad Miller and David Ranum",
+    "Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein",
+    "Algorithms in C, Parts 1-5 by Robert Sedgewick"
+  ]
+}

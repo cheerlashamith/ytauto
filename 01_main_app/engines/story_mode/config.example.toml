@@ -1,0 +1,11 @@
+comfyui_url = "http://127.0.0.1:8188"
+workflow_path = "workflows/sd3.5_simple_example_api.json"
+output_dir = "generated"
+width = 1080
+height = 1920
+steps = 20
+cfg = 4.0
+clip_duration = 8
+fps = 30
+ffmpeg = "ffmpeg"
+negative_prompt = "text, letters, captions, subtitles, watermark, logo, signature, blurry, low quality, distorted face, extra limbs, scary, violent"

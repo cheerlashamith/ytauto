@@ -1,0 +1,371 @@
+AUTOCOURSE FULL ARCHITECTURE AND RUNBOOK
+========================================
+
+SECTION 1: WHAT I UNDERSTOOD
+----------------------------
+
+You need a final system with these modes:
+
+1. Manual Course Mode
+   User gives a topic or script.
+   System generates a course video plan.
+   Manim renders serious course animations.
+   MoneyPrinterTurbo renders voice/subtitles/final MP4.
+
+2. Story Mode
+   User gives a kids story/moral story topic.
+   Story generator creates professional story scenes.
+   ComfyUI creates cartoon/story visuals.
+   MoneyPrinterTurbo renders voice/subtitles/final MP4.
+
+3. YouTube Extraction Mode
+   User gives a YouTube URL.
+   System extracts transcript in future.
+   AI rewrites script and scene plan.
+   Visual router chooses Manim/ComfyUI.
+   MoneyPrinterTurbo renders final MP4.
+
+4. Autonomous Mode
+   AI thinks of a topic or uses syllabus/trends.
+   AI creates script and scene plan.
+   Visual router chooses renderer.
+   MoneyPrinterTurbo renders final MP4.
+
+5. Syllabus-Aware DSA Mode
+   System has JNTUK R23 Data Structures syllabus.
+   Agent knows units, topics, subtopics, lab exercises.
+   If user asks broad topic, agent asks clarification.
+   If user asks exact topic, agent generates course plan.
+
+
+SECTION 2: FINAL HIGH-LEVEL ARCHITECTURE
+----------------------------------------
+
+    User / Frontend
+        |
+        v
+    FastAPI Backend
+        |
+        |-- mode selection
+        |-- topic input
+        |-- syllabus lookup
+        |-- scene planning
+        |-- job tracking
+        v
+    Scene JSON + Script + Keywords
+        |
+        +-------------------+--------------------+
+        |                                        |
+        v                                        v
+    Story Engine                            Manim Course Engine
+    ComfyUI visuals                         3Blue1Brown-style visuals
+        |                                        |
+        +-------------------+--------------------+
+                            |
+                            v
+                    Local MP4 clips
+                            |
+                            v
+                    MoneyPrinterTurbo
+                            |
+        +-------------------+--------------------+
+        |-- TTS voice
+        |-- subtitles
+        |-- background music
+        |-- final video render
+        v
+                    final-1.mp4
+
+
+SECTION 3: MODE DECISION
+------------------------
+
+Story / kids / moral / cartoon:
+    Use Story Mode + ComfyUI.
+
+DSA / math / algorithm / engineering course:
+    Use Manim Course Mode.
+
+YouTube URL:
+    Extract transcript in future, then choose Story or Course visual style.
+
+Autonomous:
+    AI decides topic and visual mode.
+
+
+SECTION 4: CURRENT FOLDERS
+--------------------------
+
+01_main_app
+    Run this for frontend/backend.
+
+02_engines/story_mode_professional_rewrite
+    Use this to generate professional story JSON.
+
+02_engines/manim_ultimate_course_renderer
+    Use this to render advanced course JSON to Manim clips.
+
+02_engines/manim_stack_synced_reference
+    Use this as reference for proper scene-by-scene animation sync.
+
+04_syllabus/jntuk_r23_data_structures_syllabus.json
+    The syllabus knowledge base.
+
+05_demo_ui/autocourse_demo_site
+    Static demo website.
+
+
+SECTION 5: RUN FRONTEND + BACKEND
+---------------------------------
+
+Open CMD:
+
+    cd /d C:\DOWNLOAD_ME_AutoCourse_Final_Master\01_main_app
+    install.bat
+    run.bat
+
+Open browser:
+
+    http://127.0.0.1:8765
+
+Frontend pages:
+
+    Generate
+    Jobs
+    Admin
+    Architecture
+
+Backend APIs:
+
+    GET  /api/health
+    GET  /api/modes
+    POST /api/jobs
+    GET  /api/jobs
+    GET  /api/jobs/{job_id}
+
+When you create a job, output appears in:
+
+    01_main_app\outputs\JOB_ID
+
+Files:
+
+    scenes_course.json OR scenes_story.json
+    moneyprinter_video_script.txt
+    moneyprinter_keywords.txt
+    NEXT_STEPS.txt
+
+
+SECTION 6: RUN STORY MODE
+-------------------------
+
+Use for kids stories and cartoon storytelling.
+
+1. Go to:
+
+    cd /d C:\DOWNLOAD_ME_AutoCourse_Final_Master\02_engines\story_mode_professional_rewrite
+
+2. Generate professional story JSON:
+
+    python -m story_mode.generate_story --topic "A fox learns kindness" --out scenes_story.json --style storybook
+
+3. Use existing ComfyUI story material generator from your working story_mode folder, or connect this JSON to ComfyUI pipeline.
+
+4. Required ComfyUI workflow location in active story engine:
+
+    workflows\sd3.5_simple_example_api.json
+
+5. Output clips go to generated\clips.
+
+6. In MoneyPrinterTurbo:
+
+    Video Source = Local file
+    Upload generated clips
+    Paste script
+    Paste keywords
+    TTS = Azure TTS V1
+    BGM = 0.08
+    Aspect = Portrait 9:16
+
+
+SECTION 7: RUN MANIM COURSE MODE
+--------------------------------
+
+Use for serious course topics.
+
+1. Go to:
+
+    cd /d C:\DOWNLOAD_ME_AutoCourse_Final_Master\02_engines\manim_ultimate_course_renderer
+
+2. Install requirements:
+
+    python -m pip install -r requirements.txt
+
+3. Check Manim:
+
+    python -m manim --version
+
+4. Put your course JSON here:
+
+    scenes_course.json
+
+5. You can use sample:
+
+    copy samples\electricity_advanced.json scenes_course.json
+
+6. Render:
+
+    render_all.bat
+
+7. Output clips:
+
+    generated\clips
+
+8. Script and keywords:
+
+    generated\moneyprinter_video_script.txt
+    generated\moneyprinter_keywords.txt
+
+9. In MoneyPrinterTurbo:
+
+    Video Source = Local file
+    Upload generated clips
+    Paste script and keywords
+    Transition = None
+    Aspect = Landscape 16:9
+    Max Clip Duration = 10
+    TTS = Azure TTS V1
+    BGM = 0.05
+
+
+SECTION 8: CUSTOM TOPIC COURSE WORKFLOW
+---------------------------------------
+
+For any custom course topic:
+
+1. Create scenes_course.json.
+2. Use supported diagram types:
+
+    title_card
+    flowchart
+    motion_flowchart
+    electric_grid
+    process
+    timeline
+    comparison
+    network
+    equation
+    probability
+    array
+    cycle
+    generic
+
+3. Each scene should have:
+
+    name
+    title
+    diagram_type
+    bullets
+    visual_data
+
+4. Render using Manim engine.
+5. Use clips in MoneyPrinterTurbo.
+
+
+SECTION 9: DSA SYLLABUS-AWARE AGENT PLAN
+----------------------------------------
+
+Syllabus file:
+
+    04_syllabus\jntuk_r23_data_structures_syllabus.json
+
+Agent behavior:
+
+If user asks:
+    linked list
+
+Agent should ask:
+    Singly linked list?
+    Doubly linked list?
+    Circular linked list?
+    Array vs linked list?
+
+If user asks:
+    postfix expression using stack
+
+Agent should directly generate:
+    What is postfix?
+    Why stack?
+    Scan tokens
+    Push operands
+    Pop operands on operator
+    Compute result
+    Example
+    Summary
+
+If user asks:
+    queue
+
+Agent should ask:
+    queue using arrays?
+    linked queue?
+    circular queue?
+    printer queue?
+    BFS?
+    deque?
+
+
+SECTION 10: CURRENT LIMITATIONS
+-------------------------------
+
+1. Frontend/backend does not yet run renderers automatically.
+2. Backend creates plans but renderer calls are still manual.
+3. Story mode professional generator is separate from ComfyUI material generator.
+4. Manim ultimate renderer supports advanced JSON safely but does not implement every After Effects cue literally.
+5. YouTube extraction mode is currently a placeholder plan generator; transcript extraction must be added.
+6. Autonomous mode is currently a placeholder planner; trend/research logic must be added.
+
+
+SECTION 11: NEXT TASKS
+----------------------
+
+Priority 1:
+    Connect backend -> Manim renderer with subprocess.
+
+Priority 2:
+    Connect backend -> ComfyUI story renderer with subprocess.
+
+Priority 3:
+    Connect backend -> MoneyPrinterTurbo API/CLI or define final assembly layer.
+
+Priority 4:
+    Add YouTube transcript extraction.
+
+Priority 5:
+    Add autonomous topic/research agent.
+
+Priority 6:
+    Expand Manim renderers:
+        linked list
+        tree
+        graph
+        sorting
+        recursion
+        OS scheduling
+        hashing
+
+
+SECTION 12: WHAT TO TELL SIR
+----------------------------
+
+Say:
+
+    Sir, I converted the system into a proper multi-mode architecture.
+    It has Manual Course Mode, Story Mode, YouTube Extraction Mode and Autonomous Mode.
+    The new frontend talks to a FastAPI backend.
+    The backend creates jobs and scene plans.
+    Story videos use ComfyUI.
+    Course videos use Manim for 3Blue1Brown-style exact animations.
+    MoneyPrinterTurbo remains the final render engine for voice, subtitles, BGM and final MP4.
+    The DSA syllabus is now stored as a structured knowledge base, so the agent can understand units, topics, subtopics and lab exercises.
+    The next step is connecting backend directly to render engines so clicking Generate produces the final video automatically.
+

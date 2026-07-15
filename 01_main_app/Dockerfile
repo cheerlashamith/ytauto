@@ -1,0 +1,36 @@
+FROM python:3.10-slim
+
+# Install system dependencies for Manim and FFmpeg
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    libcairo2-dev \
+    libpango1.0-dev \
+    texlive \
+    texlive-latex-extra \
+    texlive-fonts-extra \
+    texlive-latex-recommended \
+    texlive-science \
+    tipa \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy requirements files first to leverage Docker cache
+COPY backend/requirements.txt ./backend/
+COPY engines/story_mode/requirements.txt ./engines/story_mode/
+COPY engines/manim_course_mode/requirements.txt ./engines/manim_course_mode/
+
+# Install python dependencies
+RUN pip install --no-cache-dir -r backend/requirements.txt
+RUN pip install --no-cache-dir -r engines/story_mode/requirements.txt
+RUN pip install --no-cache-dir -r engines/manim_course_mode/requirements.txt
+
+# Copy the rest of the app
+COPY . .
+
+# Expose the FastAPI port
+EXPOSE 8765
+
+# Run the Uvicorn server
+CMD ["python", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8765"]

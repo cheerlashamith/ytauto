@@ -1,0 +1,1 @@
+linked list applications, dynamic memory allocation, polynomial representation, undo system, music playlist, hash chaining, data structures, JNTUK R23, computer science, linked list examples

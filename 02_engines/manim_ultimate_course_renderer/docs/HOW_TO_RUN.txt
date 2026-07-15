@@ -1,0 +1,43 @@
+HOW TO RUN
+==========
+
+1. Extract this kit:
+   C:\MPT_Ultimate_Manim_Course_Mode_Kit
+
+2. Open CMD:
+   cd /d C:\MPT_Ultimate_Manim_Course_Mode_Kit
+
+3. Install requirements:
+   python -m pip install -r requirements.txt
+
+4. Check Manim:
+   python -m manim --version
+
+5. Copy sample JSON:
+   copy samples\electricity_advanced.json scenes_course.json
+
+6. Render all scenes:
+   render_all.bat
+
+7. Output clips:
+   generated\clips
+
+8. Open MoneyPrinterTurbo:
+   Video Source = Local file
+   Upload generated\clips\*.mp4
+   Paste script from scenes_course.json moneyprinter_script
+   Transition = None
+   Aspect = Landscape 16:9
+   Max Clip Duration = 10
+   TTS = Azure TTS V1
+   BGM Volume = 0.05
+
+
+For a custom topic:
+-------------------
+1. Copy any sample JSON to scenes_course.json.
+2. Edit subject, keywords, moneyprinter_script.
+3. Edit scenes list.
+4. Choose diagram_type per scene.
+5. Fill visual_data.
+6. Run render_all.bat.

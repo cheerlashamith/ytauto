@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/shami/OneDrive/Desktop/DOWNLOAD_ME_AutoCourse_Final_Master/01_main_app/engines/manim_course_mode/media/videos/render_course/1080p15/partial_movie_files/UltimateCourseScene/3923670306_2348018315_469704423.mp4'
+file 'file:C:/Users/shami/OneDrive/Desktop/DOWNLOAD_ME_AutoCourse_Final_Master/01_main_app/engines/manim_course_mode/media/videos/render_course/1080p15/partial_movie_files/UltimateCourseScene/2348757746_1765469996_400652166.mp4'
+file 'file:C:/Users/shami/OneDrive/Desktop/DOWNLOAD_ME_AutoCourse_Final_Master/01_main_app/engines/manim_course_mode/media/videos/render_course/1080p15/partial_movie_files/UltimateCourseScene/2348757746_4271499944_2789987516.mp4'
+file 'file:C:/Users/shami/OneDrive/Desktop/DOWNLOAD_ME_AutoCourse_Final_Master/01_main_app/engines/manim_course_mode/media/videos/render_course/1080p15/partial_movie_files/UltimateCourseScene/2348757746_429906535_370575165.mp4'
+file 'file:C:/Users/shami/OneDrive/Desktop/DOWNLOAD_ME_AutoCourse_Final_Master/01_main_app/engines/manim_course_mode/media/videos/render_course/1080p15/partial_movie_files/UltimateCourseScene/2348757746_3396177641_1616691778.mp4'
+file 'file:C:/Users/shami/OneDrive/Desktop/DOWNLOAD_ME_AutoCourse_Final_Master/01_main_app/engines/manim_course_mode/media/videos/render_course/1080p15/partial_movie_files/UltimateCourseScene/2348757746_2241990343_3526520565.mp4'
+file 'file:C:/Users/shami/OneDrive/Desktop/DOWNLOAD_ME_AutoCourse_Final_Master/01_main_app/engines/manim_course_mode/media/videos/render_course/1080p15/partial_movie_files/UltimateCourseScene/2348757746_1432596116_1304121597.mp4'

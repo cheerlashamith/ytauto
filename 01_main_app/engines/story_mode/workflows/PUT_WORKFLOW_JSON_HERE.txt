@@ -1,0 +1,6 @@
+Copy your ComfyUI API workflow JSON here and name it exactly:
+
+sd3.5_simple_example_api.json
+
+Final path:
+C:\AutoCourse_FINAL_Story_Manim_AnyTopic_Kit\story_mode\workflows\sd3.5_simple_example_api.json

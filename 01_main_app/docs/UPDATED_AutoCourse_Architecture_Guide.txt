@@ -1,0 +1,875 @@
+UPDATED AUTOCOURSE ARCHITECTURE GUIDE — FINAL CURRENT VERSION
+=============================================================
+
+Last updated: Current workspace cleanup version
+Status: This is the main architecture file to explain the complete system to your sir/mentor.
+
+
+TABLE OF CONTENTS
+=================
+
+1. What this project is
+2. What was built already
+3. What feedback changed the architecture
+4. Final mode-based architecture
+5. What each mode uses
+6. Current folders you should use
+7. Current files you should download
+8. Full workflow diagrams
+9. Story / cartoon mode using ComfyUI
+10. Serious course mode using Manim
+11. MoneyPrinterTurbo role
+12. Ollama / Gemini / Groq / fallback provider explanation
+13. Why fallback looked bad
+14. Why ComfyUI text gets glitchy
+15. How image/video clips are generated
+16. How final video is rendered
+17. How to generate a custom topic right now
+18. How to use MoneyPrinterTurbo after clip generation
+19. How to run Manim course mode
+20. How to demo to mentor
+21. Current limitations
+22. Next engineering steps
+23. Important commands
+24. Final explanation script for mentor
+
+
+1. WHAT THIS PROJECT IS
+=======================
+
+This project is a local-first YouTube/course video automation system built around MoneyPrinterTurbo.
+
+The goal is:
+
+    Topic / URL / Autonomous idea
+        -> AI script and scene plan
+        -> generated visuals
+        -> voiceover
+        -> subtitles
+        -> background music
+        -> final MP4 video
+
+The system uses:
+
+    MoneyPrinterTurbo
+        Main production/rendering engine.
+
+    Ollama / Gemini / Groq / fallback
+        Scene/script planning providers.
+
+    ComfyUI
+        AI visual background/story image generator.
+
+    Python/Pillow overlay
+        Clean readable text/diagram overlay for ComfyUI images.
+
+    Manim
+        Serious 3Blue1Brown-style technical course animation renderer.
+
+    FFmpeg
+        Clip conversion and final video processing.
+
+
+2. WHAT WAS BUILT ALREADY
+=========================
+
+Working tested parts:
+
+    [OK] MoneyPrinterTurbo WebUI runs at http://127.0.0.1:8501
+    [OK] MoneyPrinterTurbo can generate final MP4 from local clips
+    [OK] Edge/Azure TTS V1 works
+    [OK] Subtitle generation works
+    [OK] Background music works
+    [OK] Pexels mode works if API key is provided
+    [OK] Local file mode works
+    [OK] ComfyUI runs at http://127.0.0.1:8188
+    [OK] ComfyUI can generate background images from workflow JSON
+    [OK] Python overlay can draw clean titles/bullets/diagrams
+    [OK] FFmpeg converts images to short MP4 clips
+    [OK] Auto bridge can generate clips and use them in MoneyPrinterTurbo
+    [OK] Static UI demo site exists with user/admin pages
+    [OK] New Manim course-mode kit exists for serious course animation
+
+
+3. WHAT FEEDBACK CHANGED THE ARCHITECTURE
+=========================================
+
+Mentor/sir feedback:
+
+    Current educational videos look cartoon-like.
+    They are more suitable for kids stories or storytelling.
+    Serious course mode should look more like 3Blue1Brown animations.
+
+Correct interpretation:
+
+    The ComfyUI visual style is not wrong.
+    It is just the wrong renderer for serious course mode.
+
+Therefore:
+
+    Keep ComfyUI for Story Mode.
+    Add Manim for Course Mode.
+
+This means we do NOT delete the old architecture.
+We add a new visual renderer.
+
+
+4. FINAL MODE-BASED ARCHITECTURE
+================================
+
+The platform should have these modes:
+
+    1. Autonomous Mode
+    2. YouTube URL Extraction Mode
+    3. Story / Cartoon Mode
+    4. Serious Course Mode
+    5. Hybrid Mode
+
+High-level structure:
+
+    Input Sources
+    ├── Manual Topic
+    ├── Autonomous AI Topic
+    └── YouTube URL
+
+            ↓
+
+    Content Intelligence Layer
+    ├── Research / transcript extraction
+    ├── Script generation
+    ├── Scene planning
+    └── Visual style decision
+
+            ↓
+
+    Visual Router
+    ├── Pexels stock footage
+    ├── ComfyUI Story Mode
+    ├── Manim Course Mode
+    └── Hybrid Mode
+
+            ↓
+
+    Clip Generation Layer
+    ├── downloaded stock clips
+    ├── ComfyUI generated clips
+    ├── Manim animation clips
+    └── local uploaded clips
+
+            ↓
+
+    MoneyPrinterTurbo Render Layer
+    ├── TTS voiceover
+    ├── subtitles
+    ├── background music
+    └── final MP4 render
+
+            ↓
+
+    YouTube-ready video
+
+
+5. WHAT EACH MODE USES
+======================
+
+5.1 Autonomous Mode
+-------------------
+
+Purpose:
+
+    AI chooses topic and makes a video automatically.
+
+Visual selection:
+
+    Motivation/business/trend topic:
+        Pexels or ComfyUI
+
+    Technical/course topic:
+        Manim
+
+Example:
+
+    Topic: Why discipline beats motivation
+        -> Pexels/ComfyUI
+
+    Topic: How binary search works
+        -> Manim
+
+
+5.2 YouTube URL Extraction Mode
+-------------------------------
+
+Purpose:
+
+    User gives YouTube URL.
+    System extracts transcript and creates a new explanation video.
+
+Visual selection:
+
+    Story/general URL:
+        ComfyUI or Pexels
+
+    Technical/course URL:
+        Manim
+
+Example:
+
+    URL about recursion:
+        -> transcript extraction
+        -> AI rewrites lesson
+        -> Manim call-stack animation
+        -> MoneyPrinterTurbo final render
+
+
+5.3 Story / Cartoon Mode
+------------------------
+
+Purpose:
+
+    Kids stories, moral stories, cartoon explainers, simple narrative videos.
+
+Renderer:
+
+    ComfyUI
+
+Looks like:
+
+    cartoon teacher
+    illustrated background
+    story scenes
+    character style
+    once-upon-a-time narration
+
+No need for strict number/diagram overlays.
+
+
+5.4 Serious Course Mode
+-----------------------
+
+Purpose:
+
+    Real educational course videos.
+
+Renderer:
+
+    Manim
+
+Looks like:
+
+    3Blue1Brown-style animations
+    exact text
+    exact numbers
+    clean diagrams
+    smooth transitions
+    arrays / stacks / queues / graphs / formulas
+
+Best for:
+
+    algorithms
+    data structures
+    programming
+    math
+    operating systems
+    DBMS
+    networking
+    AI/ML
+
+
+5.5 Hybrid Mode
+---------------
+
+Purpose:
+
+    Premium videos that need both art and exact diagrams.
+
+Renderer:
+
+    ComfyUI background + Manim diagram/overlay
+
+Example:
+
+    AI concept video with cinematic intro and exact neural network diagram.
+
+
+6. CURRENT FOLDERS YOU SHOULD USE
+=================================
+
+Current important folders:
+
+    C:\MPT_ComfyUI_Full_Setup_Kit\MPT_ComfyUI_Full_Setup_Kit
+
+Use for:
+
+    ComfyUI story/cartoon/generic illustrated mode.
+
+
+    C:\MPT_Manim_Course_Mode_Kit
+
+Use for:
+
+    New serious 3Blue1Brown-style course mode using Manim.
+
+
+    C:\MoneyPrinterTurbo-Portable-Windows-1.3.0
+
+Use for:
+
+    Final video rendering with voice, subtitles, BGM, and MP4 output.
+
+
+    autocourse_demo_site
+
+Use for:
+
+    Static UI demo pages: home, user pages, admin pages.
+
+
+7. CURRENT FILES YOU SHOULD DOWNLOAD
+====================================
+
+Latest important zip/folder package:
+
+    AutoCourse_CURRENT_LATEST_KIT.zip
+
+This consolidated zip should contain:
+
+    MPT_ComfyUI_Full_Setup_Kit
+    MPT_Manim_Course_Mode_Kit
+    autocourse_demo_site
+    UPDATED_AutoCourse_Architecture_Guide.txt
+
+Old standalone bridge zips are outdated and not needed anymore.
+
+
+8. FULL WORKFLOW DIAGRAMS
+=========================
+
+8.1 Existing ComfyUI Story Mode
+-------------------------------
+
+    User enters topic
+        ↓
+    Scene provider creates script/scenes
+        ↓
+    ComfyUI creates background images
+        ↓
+    Python/Pillow overlays clean text
+        ↓
+    FFmpeg converts images to MP4 clips
+        ↓
+    User uploads clips into MoneyPrinterTurbo Local File mode
+        ↓
+    MoneyPrinterTurbo generates TTS/subtitles/BGM/final MP4
+
+
+8.2 New Manim Course Mode
+-------------------------
+
+    User enters course topic
+        ↓
+    Scene planner creates course scenes
+        ↓
+    Visual router chooses Manim
+        ↓
+    Manim renders exact animated diagrams
+        ↓
+    Manim outputs MP4 clips
+        ↓
+    User uploads Manim clips into MoneyPrinterTurbo Local File mode
+        ↓
+    MoneyPrinterTurbo generates TTS/subtitles/BGM/final MP4
+
+
+8.3 Future Fully Integrated Mode
+--------------------------------
+
+    User opens MoneyPrinterTurbo
+        ↓
+    User selects visual source:
+        ComfyUI Story Mode or Manim Course Mode
+        ↓
+    MoneyPrinterTurbo internally calls renderer
+        ↓
+    Clips generated automatically
+        ↓
+    Existing MoneyPrinterTurbo pipeline renders final MP4
+
+
+9. STORY / CARTOON MODE USING COMFYUI
+=====================================
+
+Use when:
+
+    kids story
+    moral story
+    cartoon explainer
+    mythology story
+    simple motivational video
+    general visual explainer
+
+How visuals are generated:
+
+    ComfyUI generates AI backgrounds or character scenes.
+
+Why no strict overlay needed:
+
+    Story mode does not require exact arrays, formulas, pointers, or numbers.
+
+MoneyPrinterTurbo role:
+
+    Adds voice, subtitles, music, and final render.
+
+
+10. SERIOUS COURSE MODE USING MANIM
+===================================
+
+Use when:
+
+    Stack
+    Queue
+    Linked List
+    Binary Search
+    Recursion
+    Tree Traversal
+    Graph BFS/DFS
+    OS Scheduling
+    DBMS Indexing
+    Machine Learning concepts
+
+Manim creates:
+
+    exact text
+    exact numbers
+    exact arrows
+    exact arrays
+    exact graph/tree structures
+    smooth transitions
+
+This is closest to 3Blue1Brown-style course animation.
+
+
+11. MONEYPRINTERTURBO ROLE
+==========================
+
+MoneyPrinterTurbo remains the final production engine.
+
+It should handle:
+
+    TTS voice
+    subtitles
+    background music
+    clip combination
+    final MP4 output
+
+It should NOT be replaced by Manim.
+
+Correct responsibility split:
+
+    Manim:
+        course visual clips
+
+    ComfyUI:
+        story/illustration visuals
+
+    MoneyPrinterTurbo:
+        final video production
+
+
+12. PROVIDERS EXPLANATION
+=========================
+
+12.1 Fallback
+-------------
+
+Status:
+
+    Working
+
+Cost:
+
+    Free forever
+
+Quality:
+
+    Generic
+
+Problem:
+
+    Not enough topic-specific detail.
+
+Use for:
+
+    emergency demo
+    provider failure
+
+
+12.2 Ollama
+-----------
+
+Status:
+
+    API running
+
+Confirmed command:
+
+    curl http://127.0.0.1:11434/api/tags
+
+Problem:
+
+    qwen3:14b can timeout.
+
+Why:
+
+    large model, long JSON prompt, slow local generation.
+
+Fix ideas:
+
+    use qwen3:8b
+    reduce prompt length
+    reduce num_predict
+    use Groq/Gemini for scene JSON
+
+
+12.3 Gemini
+-----------
+
+Status:
+
+    Failed due to 429 Too Many Requests.
+
+Meaning:
+
+    Rate limit / quota issue.
+
+Security:
+
+    If keys were shared in logs/chat, revoke them.
+
+
+12.4 Groq
+---------
+
+Status:
+
+    Recommended next provider, but not implemented in current bridge yet.
+
+Why useful:
+
+    fast JSON generation
+    good for scene planning
+    less local timeout risk
+
+Need:
+
+    Groq API key
+    code change in generate_scenes.py
+
+
+13. WHY FALLBACK LOOKED BAD
+===========================
+
+Fallback creates generic scenes:
+
+    Introduction
+    Core Idea
+    How It Works
+    Example
+    Key Parts
+    Common Mistakes
+    Real World Use
+    Summary
+
+For Stack, better scenes are:
+
+    What is a Stack?
+    LIFO Rule
+    Push Operation
+    Pop Operation
+    Peek Operation
+    Stack Example
+    Real Uses
+    Summary
+
+So fallback is safe but not high quality.
+
+
+14. WHY COMFYUI TEXT GETS GLITCHY
+=================================
+
+AI image models are bad at exact text.
+
+They often create:
+
+    broken letters
+    fake labels
+    distorted numbers
+    wrong words
+
+Solution:
+
+    Do not ask ComfyUI to write text.
+    Use Python/Pillow or Manim for exact text.
+
+For course mode:
+
+    Manim is better than ComfyUI overlays.
+
+
+15. HOW CLIPS ARE GENERATED
+===========================
+
+ComfyUI mode:
+
+    scene prompt
+        -> ComfyUI raw image
+        -> Python overlay image
+        -> FFmpeg MP4 clip
+
+Manim mode:
+
+    Manim Python animation
+        -> Manim renders MP4 clip
+
+MoneyPrinterTurbo:
+
+    local clips
+        -> final video
+
+
+16. HOW FINAL VIDEO IS RENDERED
+===============================
+
+MoneyPrinterTurbo settings:
+
+    Video Source: Local file
+    Upload: generated clips
+    Video Script: narration text
+    Video Keywords: topic keywords
+    Transition: None
+    Aspect: 9:16 or 16:9
+    TTS: Azure TTS V1
+    BGM Volume: 0.05 to 0.1
+    Subtitles: enabled
+
+Output path:
+
+    C:\MoneyPrinterTurbo-Portable-Windows-1.3.0\MoneyPrinterTurbo\storage\tasks\TASK_ID\final-1.mp4
+
+
+17. HOW TO GENERATE A CUSTOM TOPIC RIGHT NOW
+============================================
+
+Safe current quality workflow:
+
+    1. Create or edit scenes_auto.json manually.
+    2. Make sure the script, titles, bullets, prompts are topic-specific.
+    3. Run generate_materials.py.
+    4. Upload clips into MoneyPrinterTurbo.
+
+Commands:
+
+    cd /d C:\MPT_ComfyUI_Full_Setup_Kit\MPT_ComfyUI_Full_Setup_Kit\01_auto_course_bridge
+    notepad scenes_auto.json
+    python generate_materials.py --scenes scenes_auto.json
+
+For Manim course mode:
+
+    cd /d C:\MPT_Manim_Course_Mode_Kit\manim_course_bridge
+    run_stack_demo.bat
+
+Then upload Manim MP4 to MoneyPrinterTurbo.
+
+
+18. HOW TO USE MONEYPRINTERTURBO AFTER CLIP GENERATION
+======================================================
+
+Open:
+
+    http://127.0.0.1:8501
+
+Fill:
+
+    Video Subject:
+        your topic
+
+    Video Script:
+        generated moneyprinter_video_script.txt or manual script
+
+    Video Keywords:
+        generated moneyprinter_keywords.txt
+
+    Video Source:
+        Local file
+
+    Upload Local Files:
+        generated clips
+
+    Transition:
+        None
+
+    Maximum Clip Duration:
+        match generated clip duration
+
+    TTS:
+        Azure TTS V1
+
+    BGM Volume:
+        0.05 or 0.1
+
+Then click Generate.
+
+
+19. HOW TO RUN MANIM COURSE MODE
+================================
+
+Extract:
+
+    MPT_Manim_Course_Mode_Kit.zip
+
+To:
+
+    C:\MPT_Manim_Course_Mode_Kit
+
+Open CMD:
+
+    cd /d C:\MPT_Manim_Course_Mode_Kit\manim_course_bridge
+
+Check:
+
+    run_check.bat
+
+If Manim missing:
+
+    python -m pip install manim
+
+Render stack demo:
+
+    run_stack_demo.bat
+
+Find output:
+
+    C:\MPT_Manim_Course_Mode_Kit\manim_course_bridge\media\videos\render_stack\480p15\StackFullDemo.mp4
+
+Use this MP4 in MoneyPrinterTurbo Local file mode.
+
+
+20. HOW TO DEMO TO MENTOR
+=========================
+
+Demo flow:
+
+    1. Show old ComfyUI style video.
+    2. Say it is Story Mode, good for cartoon/kids/storytelling.
+    3. Show new Manim architecture.
+    4. Render or show StackFullDemo.mp4.
+    5. Explain visual router.
+    6. Explain MoneyPrinterTurbo still does TTS/subtitles/final render.
+    7. Show static UI demo site if needed.
+
+
+21. CURRENT LIMITATIONS
+=======================
+
+Current limitations:
+
+    1. ComfyUI story mode is not good for serious course diagrams.
+    2. Fallback is generic.
+    3. Ollama can timeout.
+    4. Gemini quota can fail.
+    5. Groq provider not yet implemented.
+    6. Manim currently has only starter Stack demo.
+    7. Full native MoneyPrinterTurbo integration is not done yet.
+    8. Manual upload to MoneyPrinterTurbo is still required.
+
+
+22. NEXT ENGINEERING STEPS
+==========================
+
+Priority 1:
+
+    Install and test Manim.
+
+Priority 2:
+
+    Use Manim Stack demo in MoneyPrinterTurbo.
+
+Priority 3:
+
+    Create Manim templates:
+
+        stack
+        queue
+        linked_list
+        binary_search
+        tree
+        graph
+        flowchart
+
+Priority 4:
+
+    Add Groq provider for fast reliable scene planning.
+
+Priority 5:
+
+    Add visual_router.py in real pipeline.
+
+Priority 6:
+
+    Add native MoneyPrinterTurbo visual source:
+
+        Manim Course Mode
+        ComfyUI Story Mode
+
+
+23. IMPORTANT COMMANDS
+======================
+
+Check ComfyUI:
+
+    curl http://127.0.0.1:8188/system_stats
+
+Check Ollama:
+
+    curl http://127.0.0.1:11434/api/tags
+
+Run ComfyUI bridge:
+
+    cd /d C:\MPT_ComfyUI_Full_Setup_Kit\MPT_ComfyUI_Full_Setup_Kit\01_auto_course_bridge
+    python generate_materials.py --scenes scenes_auto.json
+
+Run Manim check:
+
+    cd /d C:\MPT_Manim_Course_Mode_Kit\manim_course_bridge
+    run_check.bat
+
+Install Manim:
+
+    python -m pip install manim
+
+Render Stack demo:
+
+    run_stack_demo.bat
+
+Start MoneyPrinterTurbo:
+
+    C:\MoneyPrinterTurbo-Portable-Windows-1.3.0\start.bat
+
+
+24. FINAL EXPLANATION SCRIPT FOR MENTOR
+=======================================
+
+Say:
+
+    Sir, I kept the original YouTube automation architecture. Autonomous mode and YouTube URL extraction mode are not removed.
+
+    The issue was only with course visuals. The first ComfyUI version looked cartoon-like, which is better for kids stories and storytelling videos.
+
+    So I added a visual router. Story videos use ComfyUI. Serious course videos use Manim, which gives 3Blue1Brown-style exact animations.
+
+    MoneyPrinterTurbo remains the final rendering engine for TTS, subtitles, background music, and MP4 output.
+
+    The next step is to add more Manim templates for stack, queue, linked list, binary search, trees, graphs, and flowcharts, and then integrate this as a native MoneyPrinterTurbo course mode.
+
+
+END OF UPDATED ARCHITECTURE GUIDE
+=================================

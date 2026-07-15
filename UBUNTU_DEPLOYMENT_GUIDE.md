@@ -16,9 +16,9 @@ mkdir -p comfyui_models && wget "https://huggingface.co/SG161222/RealVisXL_V5.0_
 *(Wait a few minutes for this to finish downloading!)*
 
 ### Step 3: Install the Magic Box (Docker)
-Copy and paste this to install the software that runs everything:
+We need to remove old conflicting versions first, then install the fresh ones. Copy and paste this:
 ```bash
-sudo apt update && sudo apt install docker.io docker-compose -y
+sudo apt remove containerd -y && sudo apt update && sudo apt install docker.io docker-compose -y
 ```
 
 ### Step 4: Turn Everything On!

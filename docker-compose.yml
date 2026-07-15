@@ -49,7 +49,7 @@ services:
     ports:
       - "8765:8765"
     volumes:
-      - ./01_main_app:/app
+      - ./01_main_app/outputs:/app/outputs
     environment:
       - OLLAMA_URL=http://autocourse-ollama:11434
       - COMFYUI_URL=http://autocourse-comfyui:8188

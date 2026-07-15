@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   autocourse-ollama:
     image: ollama/ollama:latest
@@ -18,7 +16,7 @@ services:
     restart: always
 
   autocourse-comfyui:
-    image: yanwk/comfyui-boot:latest
+    image: yanwk/comfyui-boot:cu128-slim
     container_name: autocourse-comfyui
     ports:
       - "8188:8188"

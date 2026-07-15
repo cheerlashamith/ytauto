@@ -39,6 +39,7 @@ services:
     ports:
       - "8501:8501"
       - "8080:8080"
+    command: python main.py
     volumes:
       - ./01_main_app/outputs:/app/outputs
     restart: always
@@ -55,7 +56,7 @@ services:
     environment:
       - OLLAMA_URL=http://autocourse-ollama:11434
       - COMFYUI_URL=http://autocourse-comfyui:8188
-      - MPT_URL=http://moneyprinterturbo:8501
+      - MPT_URL=http://moneyprinterturbo:8080
     depends_on:
       - autocourse-ollama
       - autocourse-comfyui

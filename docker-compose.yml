@@ -53,9 +53,11 @@ services:
     environment:
       - OLLAMA_URL=http://autocourse-ollama:11434
       - COMFYUI_URL=http://autocourse-comfyui:8188
+      - MPT_URL=http://moneyprinterturbo:8080
     depends_on:
       - autocourse-ollama
       - autocourse-comfyui
+      - moneyprinterturbo
     restart: always
 
 volumes:

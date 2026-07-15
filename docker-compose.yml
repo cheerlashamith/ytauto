@@ -35,6 +35,14 @@ services:
               capabilities: [gpu]
     restart: always
 
+  moneyprinterturbo:
+    image: ghcr.io/harry0703/moneyprinterturbo:latest
+    container_name: moneyprinterturbo
+    ports:
+      - "8501:8501"
+      - "8080:8080"
+    restart: always
+
   autocourse-backend:
     build: 
       context: ./01_main_app

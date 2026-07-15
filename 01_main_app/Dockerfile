@@ -1,3 +1,12 @@
+# Stage 1: Build the React Frontend (frontend_v2)
+FROM node:20-alpine AS frontend-builder
+WORKDIR /app/frontend_v2
+COPY frontend_v2/package*.json ./
+RUN npm install
+COPY frontend_v2/ ./
+RUN npm run build
+
+# Stage 2: Build the Python Backend
 FROM python:3.10-slim
 
 # Install system dependencies for Manim and FFmpeg
@@ -26,8 +35,11 @@ RUN pip install --no-cache-dir -r backend/requirements.txt
 RUN pip install --no-cache-dir -r engines/story_mode/requirements.txt
 RUN pip install --no-cache-dir -r engines/manim_course_mode/requirements.txt
 
-# Copy the rest of the app
+# Copy the rest of the python backend code
 COPY . .
+
+# Copy the built frontend from Stage 1 into the correct directory
+COPY --from=frontend-builder /app/frontend_v2/dist ./frontend_v2/dist
 
 # Expose the FastAPI port
 EXPOSE 8765

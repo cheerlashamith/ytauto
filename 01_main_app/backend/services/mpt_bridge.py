@@ -52,7 +52,8 @@ def _is_mpt_api_running(url: Optional[str] = None, timeout: int = 3) -> bool:
     try:
         r = requests.get(f"{url}/docs", timeout=timeout)
         return r.status_code == 200
-    except Exception:
+    except Exception as e:
+        print(f"[_is_mpt_api_running] Failed to connect to {url}/docs: {e}")
         return False
 
 
@@ -99,11 +100,11 @@ def _start_mpt_api_server(mpt_root: Optional[Path] = None) -> Optional[subproces
 
 def ensure_mpt_api_server() -> Optional[subprocess.Popen]:
     """Make sure MPT API is running. Start it if necessary (only on Windows)."""
+    if os.environ.get("MPT_URL"):
+        return None  # Trust that Docker is running it, fail at the POST request if not
+        
     if _is_mpt_api_running():
         return None
-        
-    if os.environ.get("MPT_URL"):
-        raise RuntimeError(f"MoneyPrinterTurbo API is not reachable at {_get_mpt_api_url()}. Please ensure the docker container is running.")
         
     return _start_mpt_api_server()
 

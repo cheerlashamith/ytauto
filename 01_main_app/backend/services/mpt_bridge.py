@@ -98,9 +98,13 @@ def _start_mpt_api_server(mpt_root: Optional[Path] = None) -> Optional[subproces
 
 
 def ensure_mpt_api_server() -> Optional[subprocess.Popen]:
-    """Make sure MPT API is running. Start it if necessary."""
+    """Make sure MPT API is running. Start it if necessary (only on Windows)."""
     if _is_mpt_api_running():
         return None
+        
+    if os.environ.get("MPT_URL"):
+        raise RuntimeError(f"MoneyPrinterTurbo API is not reachable at {_get_mpt_api_url()}. Please ensure the docker container is running.")
+        
     return _start_mpt_api_server()
 
 
@@ -221,7 +225,7 @@ def _prepare_local_clips(clips: List[Path], job_id: str) -> List[Path]:
     Returns the new list of paths.
     """
     mpt_root = _get_mpt_root()
-    if not mpt_root:
+    if not mpt_root or os.environ.get("MPT_URL"):
         return clips
 
     local_videos_dir = mpt_root / "storage" / "local_videos"

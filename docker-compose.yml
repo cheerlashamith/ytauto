@@ -39,6 +39,8 @@ services:
     ports:
       - "8501:8501"
       - "8080:8080"
+    volumes:
+      - ./01_main_app/outputs:/app/outputs
     restart: always
 
   autocourse-backend:

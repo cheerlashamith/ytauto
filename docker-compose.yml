@@ -41,7 +41,8 @@ services:
       - "8080:8080"
     command: python main.py
     volumes:
-      - ./01_main_app/outputs:/app/outputs
+      - ./01_main_app/outputs:/app/storage/local_videos
+      - ./01_main_app/outputs:/MoneyPrinterTurbo/storage/local_videos
     restart: always
 
   autocourse-backend:

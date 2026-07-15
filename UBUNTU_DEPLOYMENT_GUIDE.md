@@ -11,7 +11,7 @@ cd ~/Desktop && git clone https://github.com/cheerlashamith/ytauto.git && cd yta
 ### Step 2: Download the ComfyUI AI Models
 Copy and paste this to grab your RealVisXL model straight from the internet:
 ```bash
-mkdir -p comfyui_models && wget "https://huggingface.co/SG161222/RealVisXL_V5.0_Lightning/resolve/main/RealVisXL_V5.0_Lightning.safetensors" -O comfyui_models/realvisxlV50_v50LightningBakedvae.safetensors
+mkdir -p comfyui_models && wget "https://huggingface.co/SG161222/RealVisXL_V5.0_Lightning/resolve/main/RealVisXL_V5.0_Lightning_fp16.safetensors" -O comfyui_models/realvisxlV50_v50LightningBakedvae.safetensors
 ```
 *(Wait a few minutes for this to finish downloading!)*
 
